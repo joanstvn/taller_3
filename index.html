@@ -23,9 +23,10 @@
 
   <!-- Bootstrap CSS -->
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" /> -->
+                                        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" /> -->
 
   <!-- Bootstrap CSS (Local) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="./assets/css/bootstrap.css">
 </head>
 
@@ -41,7 +42,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-house"></i>Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Features</a>
@@ -61,15 +62,15 @@
     <!-- Carousel -->
     <div id="demo" class="carousel slide" data-bs-ride="carousel">
 
-      <!-- Indicators/dots -->
+      <!-- Indicators -->
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
         <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
       </div>
 
-      <!-- The slideshow/carousel -->
-      <div class="carousel-inner">
+      <!-- The carousel -->
+      <div class="carousel-inner rounded-4 overflow-hidden">
         <div class="carousel-item active">
           <img src="./assets/img/chicago.jpg" alt="Los Angeles" class="d-block w-100">
         </div>
@@ -81,7 +82,7 @@
         </div>
       </div>
 
-      <!-- Left and right controls/icons -->
+      <!-- Left and right controls -->
       <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
         <span class="carousel-control-prev-icon"></span>
       </button>
@@ -89,6 +90,197 @@
         <span class="carousel-control-next-icon"></span>
       </button>
     </div>
+
+
+    <!-- seccion 1 -->
+    <section class="container py-5">
+      <div class="row mb-4 text-center">
+        <div class="col-12">
+          <h2 class="fw-bold">Nuestros Servicios</h2>
+          <p class="text-muted">Descubre todo lo que podemos ofrecerte.</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4 rounded-3">
+            <i class="bi bi-code-slash fs-1 text-secondary mb-3"></i>
+            <h5 class="card-title fw-semibold">Desarrollo Web</h5>
+            <p class="card-text text-muted">Sitios modernos, rápidos y accesibles con las mejores tecnologías.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4 rounded-3">
+            <i class="bi bi-palette2 fs-1 text-secondary mb-3"></i>
+            <h5 class="card-title fw-semibold">Diseño UI/UX</h5>
+            <p class="card-text text-muted">Interfaces intuitivas centradas en la experiencia del usuario.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4 rounded-3">
+            <i class="bi bi-bar-chart-line fs-1 text-secondary mb-3"></i>
+            <h5 class="card-title fw-semibold">Analítica</h5>
+            <p class="card-text text-muted">Seguimiento y análisis de datos en tiempo real.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4 rounded-3">
+            <i class="bi bi-shield-check fs-1 text-secondary mb-3"></i>
+            <h5 class="card-title fw-semibold">Seguridad</h5>
+            <p class="card-text text-muted">Protegemos tu proyecto con las mejores prácticas del sector.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4 rounded-3">
+            <i class="bi bi-cloud-upload fs-1 text-secondary mb-3"></i>
+            <h5 class="card-title fw-semibold">Cloud & DevOps</h5>
+            <p class="card-text text-muted">Desplegamos y escalamos tu app con pipelines automatizados.</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4 rounded-3">
+            <i class="bi bi-headset fs-1 text-secondary mb-3"></i>
+            <h5 class="card-title fw-semibold">Soporte 24/7</h5>
+            <p class="card-text text-muted">Disponibles en todo momento para resolver cualquier incidencia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- seccion 2 -->
+    <section class="bg-secondary text-white py-5">
+      <div class="container">
+        <div class="row text-center g-4">
+          <div class="col-6 col-md-3">
+            <p class="display-4 fw-bold mb-0">150+</p>
+            <p class="text-white-50 text-uppercase small">Proyectos entregados</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="display-4 fw-bold mb-0">80+</p>
+            <p class="text-white-50 text-uppercase small">Clientes satisfechos</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="display-4 fw-bold mb-0">12</p>
+            <p class="text-white-50 text-uppercase small">Años de experiencia</p>
+          </div>
+          <div class="col-6 col-md-3">
+            <p class="display-4 fw-bold mb-0">99%</p>
+            <p class="text-white-50 text-uppercase small">Uptime garantizado</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- seccion 3 -->
+    <section class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-md-6">
+          <img src="./assets/img/chicago.jpg" alt="Sobre nosotros" class="img-fluid rounded-4">
+        </div>
+        <div class="col-12 col-md-6">
+          <span class="badge bg-secondary-subtle text-secondary mb-3 rounded-3">¿Quiénes somos?</span>
+          <h2 class="fw-bold mb-3">Construimos el futuro digital de tu empresa</h2>
+          <p class="text-muted mb-4">
+            Somos un equipo de desarrolladores, diseñadores y estrategas digitales con sede en Colombia.
+            Nuestro enfoque combina creatividad técnica con resultados medibles.
+          </p>
+          <div class="row g-2">
+            <div class="col-6"><i class="bi bi-check-circle-fill text-secondary me-2"></i>Metodología ágil</div>
+            <div class="col-6"><i class="bi bi-check-circle-fill text-secondary me-2"></i>Código limpio</div>
+            <div class="col-6"><i class="bi bi-check-circle-fill text-secondary me-2"></i>Entregas puntuales</div>
+            <div class="col-6"><i class="bi bi-check-circle-fill text-secondary me-2"></i>Soporte post-lanzamiento</div>
+          </div>
+          <a href="#" class="btn btn-secondary mt-4 px-4">Conoce más <i class="bi bi-arrow-right ms-1"></i></a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- seccion 4 -->
+    <section class="bg-body-secondary py-5">
+      <div class="container">
+        <div class="row mb-4 text-center">
+          <div class="col-12">
+            <h2 class="fw-bold">Nuestro Equipo</h2>
+            <p class="text-muted">Las personas detrás de cada proyecto.</p>
+          </div>
+        </div>
+        <!-- Fila 1: 2 destacados col-md-6 -->
+        <div class="row g-4 justify-content-center mb-4">
+          <div class="col-12 col-md-6 col-lg-5">
+            <div class="card p-4 text-center rounded-3">
+              <i class="bi bi-person-circle fs-1 text-secondary mb-2"></i>
+              <h5 class="fw-semibold mb-0">Joan Rios</h5>
+              <p class="text-secondary small mb-2">Lead Developer</p>
+              <p class="text-muted small">Arquitecto full-stack con 8 años en proyectos enterprise.</p>
+              <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class="text-muted"><i class="bi bi-github fs-5"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-5">
+            <div class="card p-4 text-center rounded-3">
+              <i class="bi bi-person-circle fs-1 text-secondary mb-2"></i>
+              <h5 class="fw-semibold mb-0">Ana García</h5>
+              <p class="text-secondary small mb-2">UX/UI Designer</p>
+              <p class="text-muted small">Especialista en sistemas de diseño y experiencias accesibles.</p>
+              <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="text-muted"><i class="bi bi-linkedin fs-5"></i></a>
+                <a href="#" class="text-muted"><i class="bi bi-dribbble fs-5"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Fila 2: 3 colaboradores col-md-4 -->
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="card p-3 text-center rounded-3">
+              <i class="bi bi-person-circle fs-2 text-secondary mb-2"></i>
+              <h6 class="fw-semibold mb-0">Carlos López</h6>
+              <p class="text-secondary small mb-1">Backend Dev</p>
+              <p class="text-muted small mb-0">Node.js · Python · AWS</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card p-3 text-center rounded-3">
+              <i class="bi bi-person-circle fs-2 text-secondary mb-2"></i>
+              <h6 class="fw-semibold mb-0">Laura Martínez</h6>
+              <p class="text-secondary small mb-1">Data Analyst</p>
+              <p class="text-muted small mb-0">Power BI · SQL · Python</p>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card p-3 text-center rounded-3">
+              <i class="bi bi-person-circle fs-2 text-secondary mb-2"></i>
+              <h6 class="fw-semibold mb-0">Pedro Sánchez</h6>
+              <p class="text-secondary small mb-1">DevOps Engineer</p>
+              <p class="text-muted small mb-0">Docker · K8s · CI/CD</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- seccion 5 -->
+    <section class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-center">
+            <i class="bi bi-rocket-takeoff fs-1 text-warning mb-3 d-block"></i>
+            <h2 class="fw-bold">¿Listo para comenzar tu proyecto?</h2>
+            <p class="text-white-50 mb-4">Cuéntanos tu idea y en menos de 24 horas tendrás una propuesta sin costo.</p>
+            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
+              <a href="#" class="btn btn-secondary btn-lg px-5"><i class="bi bi-send me-2"></i>Contactar ahora</a>
+              <a href="#" class="btn btn-outline-light btn-lg px-5">Ver portafolio</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
   <footer>
     <p>&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</p>
@@ -97,11 +289,11 @@
 
   <!-- Bootsrap JS -->
   <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-    crossorigin="anonymous"></script> -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        crossorigin="anonymous"></script> -->
 
   <!-- Bootsrap JS (Local) -->
   <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
 
-</html>
+</html>>
