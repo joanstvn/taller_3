@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="color-scheme" content="light" />
   <title>Taller 3</title>
   <meta name="author" content="Joan Stiven Rios Valderrama" />
   <meta name="description" content="Taller 3 es una agencia colombiana de diseño digital, desarrollo web y estrategia. Construimos productos modernos, rápidos y accesibles para empresas que quieren crecer." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://taller3.com/" />
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -35,6 +39,9 @@
 </head>
 <body class="bg-light" style="font-family: 'DM Sans', sans-serif;">
 
+<!-- Skip to main content link for accessibility -->
+<a href="#servicios" class="visually-hidden-focusable" style="position: absolute; top: 0; left: 0; z-index: 9999; padding: 0.5rem; background: #000; color: #fff; text-decoration: none; border-radius: 0 0 4px 0;">Saltar al contenido principal</a>
+
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
   <div class="container">
@@ -60,7 +67,7 @@
         <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="#faq" role="menuitem">Preguntas frecuentes</a></li>
         <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="#contacto" role="menuitem">Contacto</a></li>
       </ul>
-      <a class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
+      <a href="#contacto" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
     </div>
   </div>
 </nav>
@@ -75,13 +82,13 @@
     </div>
     <div class="carousel-inner h-100">
       <div class="carousel-item active h-100">
-        <img src="./assets/img/chicago.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales" width="1920" height="1080" fetchpriority="high">
+        <img src="./assets/img/chicago.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales" width="1920" height="1080" fetchpriority="high" decoding="async">
       </div>
       <div class="carousel-item h-100">
-        <img src="./assets/img/la.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista de Los Ángeles desde las alturas, representando alcance global de nuestros servicios" width="1920" height="1080" loading="lazy">
+        <img src="./assets/img/la.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista de Los Ángeles desde las alturas, representando alcance global de nuestros servicios" width="1920" height="1080" loading="lazy" decoding="async">
       </div>
       <div class="carousel-item h-100">
-        <img src="./assets/img/ny.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Skyline de Nueva York de noche, símbolo de la ambición y escala de nuestros proyectos" width="1920" height="1080" loading="lazy">
+        <img src="./assets/img/ny.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Skyline de Nueva York de noche, símbolo de la ambición y escala de nuestros proyectos" width="1920" height="1080" loading="lazy" decoding="async">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselTaller" data-bs-slide="prev" aria-label="Imagen anterior">
@@ -424,11 +431,11 @@
               <div class="row g-3">
                 <div class="col-12 col-md-6">
                   <label for="nombre" class="form-label text-uppercase text-muted small fw-semibold">Nombre</label>
-                  <input type="text" id="nombre" name="nombre" class="form-control rounded-3 bg-light border" placeholder="Tu nombre completo" autocomplete="name" required>
+                  <input type="text" id="nombre" name="nombre" class="form-control rounded-3 bg-light border" placeholder="Tu nombre completo" autocomplete="name" required aria-required="true">
                 </div>
                 <div class="col-12 col-md-6">
                   <label for="email" class="form-label text-uppercase text-muted small fw-semibold">Email</label>
-                  <input type="email" id="email" name="email" class="form-control rounded-3 bg-light border" placeholder="tu@email.com" autocomplete="email" required>
+                  <input type="email" id="email" name="email" class="form-control rounded-3 bg-light border" placeholder="tu@email.com" autocomplete="email" required aria-required="true">
                 </div>
                 <div class="col-12 col-md-6">
                   <label for="empresa" class="form-label text-uppercase text-muted small fw-semibold">Empresa</label>
@@ -436,7 +443,7 @@
                 </div>
                 <div class="col-12">
                   <label for="mensaje" class="form-label text-uppercase text-muted small fw-semibold">Mensaje</label>
-                  <textarea id="mensaje" name="mensaje" class="form-control rounded-3 bg-light border" rows="4" placeholder="Cuéntanos sobre tu proyecto, objetivos y tiempos..." required></textarea>
+                  <textarea id="mensaje" name="mensaje" class="form-control rounded-3 bg-light border" rows="4" placeholder="Cuéntanos sobre tu proyecto, objetivos y tiempos..." required aria-required="true"></textarea>
                 </div>
                 <div class="col-12">
                   <button type="submit" class="btn btn-dark rounded-pill w-100 py-2 fw-semibold">Enviar mensaje</button>
