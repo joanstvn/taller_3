@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="color-scheme" content="light" />
+  <title>Empleados — Taller 3</title>
+  <meta name="author" content="Joan Stiven Rios Valderrama" />
+  <meta name="description" content="Directorio interno de empleados de Taller 3." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preload" href="../assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../assets/css/bootstrap.min.css"></noscript>
+</head>
+<body class="bg-light">
+
+<a href="#main" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="../index.html" aria-label="Taller 3 — Inicio">
+      <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1" role="menubar">
+        <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="../index.html#inicio" role="menuitem">Inicio</a></li>
+        <li class="nav-item dropdown" role="none">
+          <a class="nav-link dropdown-toggle px-3 rounded-pill" href="../index.html#servicios" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">Servicios</a>
+          <ul class="dropdown-menu rounded-3 shadow-sm border-0">
+            <li><a class="dropdown-item" href="../index.html#servicios">Diseño Digital</a></li>
+            <li><a class="dropdown-item" href="../index.html#servicios">Desarrollo Web</a></li>
+            <li><a class="dropdown-item" href="../index.html#servicios">Estrategia</a></li>
+          </ul>
+        </li>
+        <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="../index.html#equipo" role="menuitem">Equipo</a></li>
+        <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="../index.html#precios" role="menuitem">Precios</a></li>
+        <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="../index.html#faq" role="menuitem">Preguntas frecuentes</a></li>
+        <li class="nav-item" role="none"><a class="nav-link px-3 rounded-pill" href="../index.html#contacto" role="menuitem">Contacto</a></li>
+        <li class="nav-item" role="none"><a class="nav-link active px-3 rounded-pill" href="tables.html" role="menuitem" aria-current="page">Tablas</a></li>
+      </ul>
+      <a href="login.html" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- TABLA -->
+<main id="main" class="container py-5">
+  <div class="card border rounded-4 shadow-sm p-1">
+    <div class="card-body p-0">
+      <div class="table-responsive rounded-4">
+        <table class="table table-hover mb-0">
+          <thead class="table-dark">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellido</th>
+              <th scope="col">Edad</th>
+              <th scope="col">Ciudad</th>
+              <th scope="col">Correo</th>
+              <th scope="col">Teléfono</th>
+              <th scope="col">Cargo</th>
+              <th scope="col">Estado</th>
+              <th scope="col">Fecha Ingreso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>Juan</td><td>Pérez</td><td>25</td><td>Bogotá</td><td>juan@mail.com</td><td>3001111111</td><td>Analista</td><td>Activo</td><td>01/01/2025</td></tr>
+            <tr><td>2</td><td>Ana</td><td>Gómez</td><td>28</td><td>Medellín</td><td>ana@mail.com</td><td>3002222222</td><td>Diseñadora</td><td>Activo</td><td>02/01/2025</td></tr>
+            <tr><td>3</td><td>Carlos</td><td>Ruiz</td><td>30</td><td>Cali</td><td>carlos@mail.com</td><td>3003333333</td><td>Programador</td><td>Activo</td><td>03/01/2025</td></tr>
+            <tr><td>4</td><td>Laura</td><td>Díaz</td><td>27</td><td>Barranquilla</td><td>laura@mail.com</td><td>3004444444</td><td>Contadora</td><td>Inactivo</td><td>04/01/2025</td></tr>
+            <tr><td>5</td><td>Pedro</td><td>Torres</td><td>35</td><td>Cartagena</td><td>pedro@mail.com</td><td>3005555555</td><td>Supervisor</td><td>Activo</td><td>05/01/2025</td></tr>
+            <tr><td>6</td><td>Sofía</td><td>Morales</td><td>22</td><td>Pasto</td><td>sofia@mail.com</td><td>3006666666</td><td>Auxiliar</td><td>Activo</td><td>06/01/2025</td></tr>
+            <tr><td>7</td><td>David</td><td>Rojas</td><td>31</td><td>Manizales</td><td>david@mail.com</td><td>3007777777</td><td>Técnico</td><td>Activo</td><td>07/01/2025</td></tr>
+            <tr><td>8</td><td>María</td><td>Castro</td><td>29</td><td>Ibagué</td><td>maria@mail.com</td><td>3008888888</td><td>Secretaria</td><td>Activo</td><td>08/01/2025</td></tr>
+            <tr><td>9</td><td>Andrés</td><td>Vega</td><td>33</td><td>Cúcuta</td><td>andres@mail.com</td><td>3009999999</td><td>Coordinador</td><td>Inactivo</td><td>09/01/2025</td></tr>
+            <tr><td>10</td><td>Luisa</td><td>Herrera</td><td>26</td><td>Neiva</td><td>luisa@mail.com</td><td>3010000000</td><td>Asistente</td><td>Activo</td><td>10/01/2025</td></tr>
+            <tr><td>11</td><td>Jorge</td><td>Silva</td><td>40</td><td>Tunja</td><td>jorge@mail.com</td><td>3011111111</td><td>Gerente</td><td>Activo</td><td>11/01/2025</td></tr>
+            <tr><td>12</td><td>Paula</td><td>Ramírez</td><td>24</td><td>Villavicencio</td><td>paula@mail.com</td><td>3012222222</td><td>Auxiliar</td><td>Activo</td><td>12/01/2025</td></tr>
+            <tr><td>13</td><td>Diego</td><td>Navarro</td><td>32</td><td>Armenia</td><td>diego@mail.com</td><td>3013333333</td><td>Analista</td><td>Activo</td><td>13/01/2025</td></tr>
+            <tr><td>14</td><td>Valentina</td><td>Ortiz</td><td>23</td><td>Montería</td><td>vale@mail.com</td><td>3014444444</td><td>Diseñadora</td><td>Activo</td><td>14/01/2025</td></tr>
+            <tr><td>15</td><td>Camilo</td><td>Mejía</td><td>29</td><td>Sincelejo</td><td>camilo@mail.com</td><td>3015555555</td><td>Programador</td><td>Activo</td><td>15/01/2025</td></tr>
+            <tr><td>16</td><td>Natalia</td><td>León</td><td>27</td><td>Popayán</td><td>natalia@mail.com</td><td>3016666666</td><td>Contadora</td><td>Activo</td><td>16/01/2025</td></tr>
+            <tr><td>17</td><td>Felipe</td><td>Parra</td><td>34</td><td>Riohacha</td><td>felipe@mail.com</td><td>3017777777</td><td>Supervisor</td><td>Activo</td><td>17/01/2025</td></tr>
+            <tr><td>18</td><td>Juliana</td><td>Mendoza</td><td>21</td><td>Yopal</td><td>juliana@mail.com</td><td>3018888888</td><td>Auxiliar</td><td>Activo</td><td>18/01/2025</td></tr>
+            <tr><td>19</td><td>Miguel</td><td>Reyes</td><td>36</td><td>Florencia</td><td>miguel@mail.com</td><td>3019999999</td><td>Técnico</td><td>Inactivo</td><td>19/01/2025</td></tr>
+            <tr><td>20</td><td>Daniela</td><td>Cruz</td><td>28</td><td>Leticia</td><td>daniela@mail.com</td><td>3020000000</td><td>Coordinadora</td><td>Activo</td><td>20/01/2025</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4" role="contentinfo">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <span class="fw-semibold">
+        <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
+      </span>
+      <span class="small" style="color:rgba(255,255,255,0.5)">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
