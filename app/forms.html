@@ -5,66 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="color-scheme" content="light" />
-  <title>Taller 3 — Acceso</title>
+  <title>Taller 3</title>
   <meta name="author" content="Joan Stiven Rios Valderrama" />
   <meta name="description" content="Inicia sesión o crea tu cuenta en Taller 3." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <link rel="preload" href="../assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../assets/css/bootstrap.min.css"></noscript>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
 </head>
-<body class="bg-light">
+<body class="bg-light d-flex flex-column min-vh-100">
 
 <a href="#main" class="visually-hidden-focusable position-absolute top-0 start-0 bg-dark text-white p-2 rounded-bottom text-decoration-none">Saltar al contenido principal</a>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" aria-label="Navegación principal">
+<!-- NAVBAR APP -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" aria-label="Navegación de la aplicación">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="../index.html#inicio" aria-label="Taller 3 — Inicio">
+    <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 — App">
       <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#appNavMenu" aria-controls="appNavMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav mx-auto gap-1">
-        <li class="nav-item">
-          <a class="nav-link px-3 rounded-pill" href="../index.html#inicio">Inicio</a>
+    <div class="collapse navbar-collapse" id="appNavMenu">
+      <ul class="navbar-nav me-auto gap-1" role="menubar">
+        <li class="nav-item" role="none">
+          <a class="nav-link px-3 rounded-pill" href="index.html" role="menuitem">
+            <i class="bi bi-house-door me-1" aria-hidden="true"></i>Inicio
+          </a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle px-3 rounded-pill" href="#" data-bs-toggle="dropdown" aria-expanded="false">Secciones</a>
-          <ul class="dropdown-menu rounded-3 shadow-sm border-0">
-            <li><a class="dropdown-item" href="../index.html#servicios">Servicios</a></li>
-            <li><a class="dropdown-item" href="../index.html#equipo">Equipo</a></li>
-            <li><a class="dropdown-item" href="../index.html#precios">Precios</a></li>
-            <li><a class="dropdown-item" href="../index.html#faq">Preguntas frecuentes</a></li>
-            <li><a class="dropdown-item" href="../index.html#contacto">Contacto</a></li>
-          </ul>
+        <li class="nav-item" role="none">
+          <a class="nav-link px-3 rounded-pill" href="tables.html" role="menuitem">
+            <i class="bi bi-table me-1" aria-hidden="true"></i>Tabla
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link px-3 rounded-pill" href="tables.html">Tabla</a>
+        <li class="nav-item" role="none">
+          <a class="nav-link active px-3 rounded-pill" href="forms.html" role="menuitem" aria-current="page">
+            <i class="bi bi-ui-checks me-1" aria-hidden="true"></i>Formularios
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active px-3 rounded-pill" href="forms.html" aria-current="page">Formularios</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link px-3 rounded-pill" href="github.html">GitHub</a>
+        <li class="nav-item" role="none">
+          <a class="nav-link px-3 rounded-pill" href="github.html" role="menuitem">
+            <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub
+          </a>
         </li>
       </ul>
-      <a href="forms.html" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
+      <a href="../index.html" class="btn btn-outline-dark rounded-pill px-4 ms-2">
+        <i class="bi bi-box-arrow-left me-1" aria-hidden="true"></i>Salir
+      </a>
     </div>
   </div>
 </nav>
 
 <!-- FORMULARIOS -->
-<main id="main" class="container py-5">
-  <h1 class="display-5 fw-bold mb-4">Acceso a Taller 3</h1>
+<main id="main" class="container py-5 flex-grow-1">
   <div class="row g-4 align-items-start">
 
     <!-- REGISTRO -->
     <section class="col-12 col-lg-6" aria-labelledby="titulo-registro">
       <div class="card border rounded-4 shadow-sm p-1">
         <div class="card-body">
-          <p class="text-uppercase text-muted small fw-semibold mb-1">Nuevo usuario</p>
           <h2 id="titulo-registro" class="h5 fw-bold mb-4">Crear cuenta</h2>
           <form novalidate>
             <div class="mb-3">
@@ -98,7 +99,6 @@
     <section class="col-12 col-lg-6" id="login" aria-labelledby="titulo-login">
       <div class="card border rounded-4 shadow-sm p-1">
         <div class="card-body">
-          <p class="text-uppercase text-muted small fw-semibold mb-1">Ya tienes cuenta</p>
           <h2 id="titulo-login" class="h5 fw-bold mb-4">Iniciar sesión</h2>
           <form novalidate>
             <div class="mb-3">

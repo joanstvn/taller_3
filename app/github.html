@@ -3,157 +3,129 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="color-scheme" content="light" />
-  <title>Taller 3 — Git & GitHub desde VSCode</title>
+  <meta name="robots" content="index, follow" />
+  <title>Taller 3 — Git & GitHub</title>
   <meta name="author" content="Joan Stiven Rios Valderrama" />
   <meta name="description" content="Guía paso a paso para conectar un repositorio remoto de GitHub usando Git desde la terminal de VSCode." />
-  <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#ffffff" />
-  <link rel="preload" href="../assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../assets/css/bootstrap.min.css"></noscript>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
+
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
 </head>
+
 <body class="bg-light">
 
-<a href="#main" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
+<a href="#main" class="visually-hidden-focusable"
+   style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">
+  Saltar al contenido principal
+</a>
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm"
+     aria-label="Navegación de la aplicación">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="../index.html#inicio" aria-label="Taller 3 — Inicio">
-      <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
+    <a class="navbar-brand fw-semibold" href="index.html">
+      <span class="badge bg-dark me-1 rounded-2">T3</span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#appNavMenu"
+            aria-controls="appNavMenu" aria-expanded="false"
+            aria-label="Abrir menú de navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav mx-auto gap-1" role="menubar">
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="../index.html#inicio" role="menuitem">Inicio</a>
+    <div class="collapse navbar-collapse" id="appNavMenu">
+      <ul class="navbar-nav me-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link px-3 rounded-pill" href="index.html">
+            <i class="bi bi-house-door me-1"></i>Inicio
+          </a>
         </li>
-        <li class="nav-item dropdown" role="none">
-          <a class="nav-link dropdown-toggle px-3 rounded-pill" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">Secciones</a>
-          <ul class="dropdown-menu rounded-3 shadow-sm border-0">
-            <li><a class="dropdown-item" href="../index.html#servicios">Servicios</a></li>
-            <li><a class="dropdown-item" href="../index.html#equipo">Equipo</a></li>
-            <li><a class="dropdown-item" href="../index.html#precios">Precios</a></li>
-            <li><a class="dropdown-item" href="../index.html#faq">Preguntas frecuentes</a></li>
-            <li><a class="dropdown-item" href="../index.html#contacto">Contacto</a></li>
-          </ul>
+        <li class="nav-item">
+          <a class="nav-link px-3 rounded-pill" href="tables.html">
+            <i class="bi bi-table me-1"></i>Tabla
+          </a>
         </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="tables.html" role="menuitem">Tabla</a>
+        <li class="nav-item">
+          <a class="nav-link px-3 rounded-pill" href="forms.html">
+            <i class="bi bi-ui-checks me-1"></i>Formularios
+          </a>
         </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="forms.html" role="menuitem">Formularios</a>
-        </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link active px-3 rounded-pill" href="github.html" role="menuitem" aria-current="page">GitHub</a>
+        <li class="nav-item">
+          <a class="nav-link active px-3 rounded-pill" href="github.html" aria-current="page">
+            <i class="bi bi-github me-1"></i>GitHub
+          </a>
         </li>
       </ul>
-      <a href="forms.html" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
+      <a href="../index.html" class="btn btn-outline-dark rounded-pill px-4 ms-2">
+        <i class="bi bi-box-arrow-left me-1"></i>Salir
+      </a>
     </div>
   </div>
 </nav>
 
 <!-- HERO -->
-<section class="bg-dark text-white py-5" aria-label="Encabezado de la guía">
+<section class="bg-dark text-white py-5">
   <div class="container py-3">
-    <div class="row align-items-center g-4">
-      <div class="col-12 col-lg-8">
-        <p class="text-uppercase small fw-semibold mb-2 text-success" style="letter-spacing:.08em;">Guía práctica</p>
-        <h1 class="display-5 fw-bold mb-3">Git & GitHub<br>desde VSCode</h1>
-        <p class="mb-4 text-white-50" style="max-width:520px;">Conecta tu proyecto local con un repositorio remoto en GitHub usando la terminal integrada de Visual Studio Code.</p>
-        <div class="d-flex flex-wrap gap-2">
-          <span class="badge rounded-pill px-3 py-2 fw-normal bg-dark text-white border border-secondary">
-            <i class="bi bi-terminal me-1" aria-hidden="true"></i>Terminal
-          </span>
-          <span class="badge rounded-pill px-3 py-2 fw-normal bg-dark text-white border border-secondary">
-            <i class="bi bi-git me-1" aria-hidden="true"></i>Git
-          </span>
-          <span class="badge rounded-pill px-3 py-2 fw-normal bg-dark text-white border border-secondary">
-            <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub
-          </span>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 d-flex justify-content-center">
-        <pre class="bg-dark text-white p-4 rounded-3 border border-secondary font-monospace small overflow-auto" style="min-width:260px; max-width:320px; margin:0;">
-<span class="text-secondary"># Flujo completo en 6 pasos</span>
-<span class="text-success">$</span> git init
-<span class="text-success">$</span> git add .
-<span class="text-success">$</span> git commit -m "init"
-<span class="text-success">$</span> git remote add origin
-<span class="text-success">$</span> git branch -M main
-<span class="text-success">$</span> git push -u origin main</pre>
-      </div>
+    <h1 class="display-5 fw-bold mb-3">Git & GitHub<br>desde VSCode</h1>
+    <p class="mb-4 text-white-50" style="max-width:520px;">
+      Conecta tu proyecto local con un repositorio remoto en GitHub usando la terminal integrada de Visual Studio Code.
+    </p>
+    <div class="d-flex flex-wrap gap-2">
+      <span class="badge rounded-pill px-3 py-2 fw-normal bg-dark text-white border border-secondary">
+        <i class="bi bi-terminal me-1"></i>Terminal
+      </span>
+      <span class="badge rounded-pill px-3 py-2 fw-normal bg-dark text-white border border-secondary">
+        <i class="bi bi-git me-1"></i>Git
+      </span>
+      <span class="badge rounded-pill px-3 py-2 fw-normal bg-dark text-white border border-secondary">
+        <i class="bi bi-github me-1"></i>GitHub
+      </span>
     </div>
   </div>
 </section>
 
-<!-- CONTENIDO PRINCIPAL -->
+<!-- MAIN -->
 <main id="main" class="container py-5">
-  <div class="row g-4">
-
-    <!-- Sidebar -->
-    <aside class="col-lg-3" aria-label="Navegación de pasos">
-      <div class="card border rounded-4 shadow-sm p-3" style="position:sticky; top:80px;">
-        <p class="text-uppercase text-muted small fw-semibold mb-3" style="letter-spacing:.06em;">En esta guía</p>
-        <nav class="nav flex-column gap-1" aria-label="Índice de pasos">
-          <a href="#prereqs" class="nav-link px-2 py-1 text-secondary rounded">Requisitos previos</a>
-          <a href="#paso1" class="nav-link px-2 py-1 text-secondary rounded">1. Abre la terminal</a>
-          <a href="#paso2" class="nav-link px-2 py-1 text-secondary rounded">2. Inicializa Git</a>
-          <a href="#paso3" class="nav-link px-2 py-1 text-secondary rounded">3. Configura tu identidad</a>
-          <a href="#paso4" class="nav-link px-2 py-1 text-secondary rounded">4. Crea el repositorio</a>
-          <a href="#paso5" class="nav-link px-2 py-1 text-secondary rounded">5. Conecta el remoto</a>
-          <a href="#paso6" class="nav-link px-2 py-1 text-secondary rounded">6. Tu primer push</a>
-          <a href="#flujo" class="nav-link px-2 py-1 text-secondary rounded">Flujo diario</a>
-          <a href="#errores" class="nav-link px-2 py-1 text-secondary rounded">Errores comunes</a>
-        </nav>
-      </div>
-    </aside>
-
-    <!-- Contenido -->
-    <div class="col-12 col-lg-9">
+  <div class="row justify-content-center">
+    <div class="col-12 col-lg-8 d-flex flex-column gap-4">
 
       <!-- REQUISITOS -->
-      <section id="prereqs" class="mb-5" aria-labelledby="prereqs-titulo">
+      <section id="prereqs">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <p class="text-uppercase text-muted small fw-semibold mb-1" style="letter-spacing:.06em;">Antes de empezar</p>
-            <h2 id="prereqs-titulo" class="h4 fw-bold mb-4">Requisitos previos</h2>
+            <h2 class="h4 fw-bold mb-4">Requisitos previos</h2>
             <div class="row g-3">
               <div class="col-12 col-md-4">
                 <div class="d-flex gap-3 align-items-start">
-                  <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2" aria-hidden="true">
+                  <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2">
                     <i class="bi bi-code-square fs-5 text-dark"></i>
                   </div>
                   <div>
                     <h3 class="h6 fw-semibold mb-1">Visual Studio Code</h3>
-                    <p class="text-secondary small mb-0">Versión estable instalada en tu equipo.</p>
+                    <p class="small mb-0">Versión estable instalada en tu equipo.</p>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-4">
                 <div class="d-flex gap-3 align-items-start">
-                  <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2" aria-hidden="true">
+                  <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2">
                     <i class="bi bi-git fs-5 text-dark"></i>
                   </div>
                   <div>
                     <h3 class="h6 fw-semibold mb-1">Git instalado</h3>
-                    <p class="text-secondary small mb-0">Verifica con <code>git --version</code> en la terminal.</p>
+                    <p class="small mb-0">Verifica con <code>git --version</code> en la terminal.</p>
                   </div>
                 </div>
               </div>
               <div class="col-12 col-md-4">
                 <div class="d-flex gap-3 align-items-start">
-                  <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2" aria-hidden="true">
+                  <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center flex-shrink-0 p-2">
                     <i class="bi bi-github fs-5 text-dark"></i>
                   </div>
                   <div>
                     <h3 class="h6 fw-semibold mb-1">Cuenta en GitHub</h3>
-                    <p class="text-secondary small mb-0">Sesión activa en <a href="https://github.com" target="_blank" rel="noopener" class="text-dark fw-semibold">github.com</a>.</p>
+                    <p class="small mb-0">Sesión activa en <a href="https://github.com" target="_blank" rel="noopener" class="text-dark fw-semibold">github.com</a>.</p>
                   </div>
                 </div>
               </div>
@@ -163,210 +135,193 @@
       </section>
 
       <!-- PASO 1 -->
-      <section id="paso1" class="mb-4" aria-labelledby="paso1-titulo">
+      <section id="paso1">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="badge bg-dark rounded-circle p-3" aria-hidden="true">1</span>
+              <span class="badge bg-dark rounded-circle p-3">1</span>
               <div>
                 <p class="text-uppercase text-muted small fw-semibold mb-0" style="letter-spacing:.06em;">Paso 1</p>
-                <h2 id="paso1-titulo" class="h5 fw-bold mb-0">Abre la terminal en VSCode</h2>
+                <h2 class="h5 fw-bold mb-0">Abre la terminal en VSCode</h2>
               </div>
             </div>
-            <p class="text-secondary small mb-3">La terminal integrada de VSCode inicia directamente en la raíz de tu proyecto abierto.</p>
-            <div class="row g-3 mb-3">
+            <p class="small mb-3">La terminal integrada inicia directamente en la raíz de tu proyecto.</p>
+            <div class="row g-3">
               <div class="col-12 col-md-6">
                 <div class="bg-light rounded-3 p-3 h-100">
-                  <p class="small fw-semibold mb-1"><i class="bi bi-keyboard me-1" aria-hidden="true"></i>Atajo de teclado</p>
-                  <p class="text-secondary small mb-0">Presiona <kbd>Ctrl</kbd> + <kbd>`</kbd> en Windows/Linux<br>o <kbd>⌘</kbd> + <kbd>`</kbd> en macOS.</p>
+                  <p class="small fw-semibold mb-1"><i class="bi bi-keyboard me-1"></i>Atajo de teclado</p>
+                  <p class="small mb-0">
+                    <kbd>Ctrl</kbd> + <kbd>`</kbd> en Windows/Linux<br>
+                    <kbd>⌘</kbd> + <kbd>`</kbd> en macOS
+                  </p>
                 </div>
               </div>
               <div class="col-12 col-md-6">
                 <div class="bg-light rounded-3 p-3 h-100">
-                  <p class="small fw-semibold mb-1"><i class="bi bi-menu-button-wide me-1" aria-hidden="true"></i>Menú</p>
-                  <p class="text-secondary small mb-0">Ve a <strong>Ver → Terminal</strong> en la barra de menú.</p>
+                  <p class="small fw-semibold mb-1"><i class="bi bi-menu-button-wide me-1"></i>Menú</p>
+                  <p class="small mb-0">Ve a <strong>Ver → Terminal</strong> en la barra de menú.</p>
                 </div>
               </div>
-            </div>
-            <div class="alert alert-success d-flex align-items-start" role="alert">
-              <i class="bi bi-lightbulb me-2 mt-1" aria-hidden="true"></i>
-              <div>Asegúrate de haber abierto la carpeta raíz de tu proyecto en VSCode antes de abrir la terminal.</div>
             </div>
           </div>
         </div>
       </section>
 
       <!-- PASO 2 -->
-      <section id="paso2" class="mb-4" aria-labelledby="paso2-titulo">
+      <section id="paso2">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="badge bg-dark rounded-circle p-3" aria-hidden="true">2</span>
+              <span class="badge bg-dark rounded-circle p-3">2</span>
               <div>
                 <p class="text-uppercase text-muted small fw-semibold mb-0" style="letter-spacing:.06em;">Paso 2</p>
-                <h2 id="paso2-titulo" class="h5 fw-bold mb-0">Inicializa el repositorio local</h2>
+                <h2 class="h5 fw-bold mb-0">Inicializa el repositorio local</h2>
               </div>
             </div>
-            <p class="text-secondary small mb-3">Este comando convierte tu carpeta en un repositorio Git local, creando la carpeta oculta <code>.git</code>.</p>
-            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto">$ git init
-<span class="text-secondary"># Initialized empty Git repository in /tu/proyecto/.git/</span></pre>
-            <div class="alert alert-warning d-flex align-items-start mt-3" role="alert">
-              <i class="bi bi-exclamation-triangle me-2 mt-1" aria-hidden="true"></i>
-              <div>Si ya clonaste el repositorio con <code>git clone</code>, omite este paso. El repositorio ya viene inicializado.</div>
-            </div>
+            <p class="small mb-3">Convierte tu carpeta en un repositorio Git, creando la carpeta oculta <code>.git</code>.</p>
+            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small">$ git init
+<span class="text-white-50"># Initialized empty Git repository in /tu/proyecto/.git/</span></pre>
           </div>
         </div>
       </section>
 
       <!-- PASO 3 -->
-      <section id="paso3" class="mb-4" aria-labelledby="paso3-titulo">
+      <section id="paso3">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="badge bg-dark rounded-circle p-3" aria-hidden="true">3</span>
+              <span class="badge bg-dark rounded-circle p-3">3</span>
               <div>
                 <p class="text-uppercase text-muted small fw-semibold mb-0" style="letter-spacing:.06em;">Paso 3</p>
-                <h2 id="paso3-titulo" class="h5 fw-bold mb-0">Configura tu identidad en Git</h2>
+                <h2 class="h5 fw-bold mb-0">Configura tu identidad en Git</h2>
               </div>
             </div>
-            <p class="text-secondary small mb-3">Git necesita saber quién hace cada commit. Esta configuración es global.</p>
-            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto"><span class="text-secondary"># Reemplaza con tus datos reales</span>
+            <p class="small mb-3">Git necesita saber quién hace cada commit. Esta configuración es global.</p>
+            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small"><span class="text-white-50"># Reemplaza con tus datos reales</span>
 $ git config --global user.name "Tu Nombre"
 $ git config --global user.email "tu@correo.com"
 
-<span class="text-secondary"># Verifica que quedó bien</span>
+<span class="text-white-50"># Verifica que quedó bien</span>
 $ git config --list</pre>
-            <div class="alert alert-success d-flex align-items-start mt-3" role="alert">
-              <i class="bi bi-lightbulb me-2 mt-1" aria-hidden="true"></i>
-              <div>Usa <code>--local</code> en lugar de <code>--global</code> si necesitas una identidad distinta solo para este proyecto.</div>
-            </div>
           </div>
         </div>
       </section>
 
       <!-- PASO 4 -->
-      <section id="paso4" class="mb-4" aria-labelledby="paso4-titulo">
+      <section id="paso4">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="badge bg-dark rounded-circle p-3" aria-hidden="true">4</span>
+              <span class="badge bg-dark rounded-circle p-3">4</span>
               <div>
                 <p class="text-uppercase text-muted small fw-semibold mb-0" style="letter-spacing:.06em;">Paso 4</p>
-                <h2 id="paso4-titulo" class="h5 fw-bold mb-0">Crea el repositorio en GitHub</h2>
+                <h2 class="h5 fw-bold mb-0">Crea el repositorio en GitHub</h2>
               </div>
             </div>
-            <p class="text-secondary small mb-3">Necesitas un repositorio remoto vacío en GitHub.</p>
+            <p class="small mb-3">Necesitas un repositorio remoto vacío en GitHub.</p>
             <ol class="list-unstyled">
               <li class="d-flex gap-3 align-items-start mb-2">
                 <span class="badge bg-dark rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:24px;height:24px;">a</span>
-                <p class="text-secondary small mb-0">Ve a <a href="https://github.com/new" target="_blank" rel="noopener" class="text-dark fw-semibold">github.com/new</a>.</p>
+                <p class="small mb-0">Ve a <a href="https://github.com/new" target="_blank" rel="noopener" class="text-dark fw-semibold">github.com/new</a>.</p>
               </li>
               <li class="d-flex gap-3 align-items-start mb-2">
                 <span class="badge bg-dark rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:24px;height:24px;">b</span>
-                <p class="text-secondary small mb-0">Escribe el nombre y elige público o privado.</p>
+                <p class="small mb-0">Escribe el nombre y elige público o privado.</p>
               </li>
               <li class="d-flex gap-3 align-items-start mb-2">
                 <span class="badge bg-dark rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:24px;height:24px;">c</span>
-                <p class="text-secondary small mb-0"><strong>No marques</strong> README, .gitignore ni licencia. Debe quedar vacío.</p>
+                <p class="small mb-0"><strong>No marques</strong> README, .gitignore ni licencia — debe quedar vacío.</p>
               </li>
               <li class="d-flex gap-3 align-items-start mb-2">
                 <span class="badge bg-dark rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:24px;height:24px;">d</span>
-                <p class="text-secondary small mb-0">Copia la URL que aparece al crear el repositorio.</p>
+                <p class="small mb-0">Copia la URL que aparece al crear el repositorio.</p>
               </li>
             </ol>
-            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto"><span class="text-secondary"># La URL tendrá este formato:</span>
+            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small"><span class="text-white-50"># La URL tendrá este formato:</span>
 https://github.com/tu-usuario/nombre-repositorio.git</pre>
           </div>
         </div>
       </section>
 
       <!-- PASO 5 -->
-      <section id="paso5" class="mb-4" aria-labelledby="paso5-titulo">
+      <section id="paso5">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="badge bg-dark rounded-circle p-3" aria-hidden="true">5</span>
+              <span class="badge bg-dark rounded-circle p-3">5</span>
               <div>
                 <p class="text-uppercase text-muted small fw-semibold mb-0" style="letter-spacing:.06em;">Paso 5</p>
-                <h2 id="paso5-titulo" class="h5 fw-bold mb-0">Conecta el repositorio remoto</h2>
+                <h2 class="h5 fw-bold mb-0">Conecta el repositorio remoto</h2>
               </div>
             </div>
-            <p class="text-secondary small mb-3">Le dices a tu Git local dónde está el repositorio remoto en GitHub.</p>
-            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto"><span class="text-secondary"># Agrega el remoto (reemplaza la URL)</span>
+            <p class="small mb-3">Le dices a tu Git local dónde está el repositorio remoto en GitHub.</p>
+            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small"><span class="text-white-50"># Agrega el remoto (reemplaza la URL)</span>
 $ git remote add origin https://github.com/tu-usuario/nombre-repositorio.git
 
-<span class="text-secondary"># Verifica que el remoto quedó registrado</span>
+<span class="text-white-50"># Verifica que el remoto quedó registrado</span>
 $ git remote -v
-<span class="text-secondary"># origin  https://github.com/tu-usuario/nombre-repositorio.git (fetch)</span>
-<span class="text-secondary"># origin  https://github.com/tu-usuario/nombre-repositorio.git (push)</span></pre>
-            <div class="alert alert-success d-flex align-items-start mt-3" role="alert">
-              <i class="bi bi-lightbulb me-2 mt-1" aria-hidden="true"></i>
-              <div><strong>SSH vs HTTPS:</strong> Con HTTPS GitHub pedirá usuario y token. Con SSH solo configuras tu clave una vez. Para proyectos frecuentes, SSH es más cómodo.</div>
-            </div>
+<span class="text-white-50"># origin  https://github.com/tu-usuario/nombre-repositorio.git (fetch)
+# origin  https://github.com/tu-usuario/nombre-repositorio.git (push)</span></pre>
           </div>
         </div>
       </section>
 
       <!-- PASO 6 -->
-      <section id="paso6" class="mb-4" aria-labelledby="paso6-titulo">
+      <section id="paso6">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <span class="badge bg-dark rounded-circle p-3" aria-hidden="true">6</span>
+              <span class="badge bg-dark rounded-circle p-3">6</span>
               <div>
                 <p class="text-uppercase text-muted small fw-semibold mb-0" style="letter-spacing:.06em;">Paso 6</p>
-                <h2 id="paso6-titulo" class="h5 fw-bold mb-0">Prepara y sube tu primer commit</h2>
+                <h2 class="h5 fw-bold mb-0">Prepara y sube tu primer commit</h2>
               </div>
             </div>
-            <p class="text-secondary small mb-3">Añade tus archivos al staging, crea el commit, renombra la rama y sube el código.</p>
-            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto"><span class="text-secondary"># 1. Agrega todos los archivos al staging</span>
+            <p class="small mb-3">Añade archivos al staging, crea el commit, renombra la rama y sube el código.</p>
+            <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small"><span class="text-white-50"># 1. Agrega todos los archivos al staging</span>
 $ git add .
 
-<span class="text-secondary"># 2. Revisa qué archivos están listos (opcional)</span>
+<span class="text-white-50"># 2. Revisa qué archivos están listos (opcional)</span>
 $ git status
 
-<span class="text-secondary"># 3. Crea el commit con un mensaje descriptivo</span>
+<span class="text-white-50"># 3. Crea el commit</span>
 $ git commit -m "feat: primer commit del proyecto"
 
-<span class="text-secondary"># 4. Renombra la rama local a 'main'</span>
+<span class="text-white-50"># 4. Renombra la rama local a 'main'</span>
 $ git branch -M main
 
-<span class="text-secondary"># 5. Sube el código y vincula rama local con la remota</span>
+<span class="text-white-50"># 5. Sube y vincula la rama local con la remota</span>
 $ git push -u origin main</pre>
-            <div class="alert alert-success d-flex align-items-start mt-3" role="alert">
-              <i class="bi bi-lightbulb me-2 mt-1" aria-hidden="true"></i>
-              <div><strong>¿Qué hace el flag <code>-u</code>?</strong> Vincula tu rama local <code>main</code> con <code>origin/main</code>. Luego puedes usar solo <code>git push</code> y <code>git pull</code>.</div>
-            </div>
           </div>
         </div>
       </section>
 
       <!-- FLUJO DIARIO -->
-      <section id="flujo" class="mb-4" aria-labelledby="flujo-titulo">
+      <section id="flujo">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <p class="text-uppercase text-muted small fw-semibold mb-1" style="letter-spacing:.06em;">Referencia rápida</p>
-            <h2 id="flujo-titulo" class="h5 fw-bold mb-4">Flujo de trabajo diario</h2>
-            <p class="text-secondary small mb-4">Después del primer push, este será tu ciclo de trabajo habitual.</p>
+            <h2 class="h5 fw-bold mb-4">Flujo de trabajo diario</h2>
+            <p class="small mb-4">Después del primer push, este será tu ciclo habitual.</p>
             <div class="row g-3">
               <div class="col-12 col-md-6">
-                <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto h-100"><span class="text-secondary"># Antes de empezar — baja cambios del remoto</span>
+                <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small h-100"><span class="text-white-50"># Baja cambios del remoto</span>
 $ git pull
 
-<span class="text-secondary"># Trabaja en tus archivos...</span>
+<span class="text-white-50"># Trabaja en tus archivos...</span>
 
-<span class="text-secondary"># Revisa qué cambió</span>
+<span class="text-white-50"># Revisa qué cambió</span>
 $ git status
 $ git diff</pre>
               </div>
               <div class="col-12 col-md-6">
-                <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto h-100"><span class="text-secondary"># Agrega los cambios al staging</span>
+                <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small h-100"><span class="text-white-50"># Agrega al staging</span>
 $ git add .
 
-<span class="text-secondary"># Crea el commit</span>
+<span class="text-white-50"># Crea el commit</span>
 $ git commit -m "descripción del cambio"
 
-<span class="text-secondary"># Sube al remoto</span>
+<span class="text-white-50"># Sube al remoto</span>
 $ git push</pre>
               </div>
             </div>
@@ -375,27 +330,29 @@ $ git push</pre>
       </section>
 
       <!-- ERRORES COMUNES -->
-      <section id="errores" class="mb-4" aria-labelledby="errores-titulo">
+      <section id="errores">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
             <p class="text-uppercase text-muted small fw-semibold mb-1" style="letter-spacing:.06em;">Solución de problemas</p>
-            <h2 id="errores-titulo" class="h5 fw-bold mb-4">Errores más comunes</h2>
+            <h2 class="h5 fw-bold mb-4">Errores más comunes</h2>
             <div class="accordion accordion-flush" id="erroresAccordion">
 
               <div class="accordion-item border rounded-3 mb-2 shadow-sm">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button" data-bs-toggle="collapse" data-bs-target="#e1" aria-expanded="false" aria-controls="e1">
-                    <i class="bi bi-x-circle text-danger me-2" aria-hidden="true"></i>error: remote origin already exists
+                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#e1"
+                          aria-expanded="false" aria-controls="e1">
+                    <i class="bi bi-x-circle text-danger me-2"></i>error: remote origin already exists
                   </button>
                 </h3>
                 <div id="e1" class="accordion-collapse collapse" data-bs-parent="#erroresAccordion">
-                  <div class="accordion-body text-secondary small">
+                  <div class="accordion-body small">
                     Ya existe un remoto con el nombre <code>origin</code>. Tienes dos opciones:
-                    <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto mt-2"><span class="text-secondary"># Opción A: elimina y vuelve a agregar</span>
+                    <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small mt-2"><span class="text-white-50"># Opción A: elimina y vuelve a agregar</span>
 $ git remote remove origin
 $ git remote add origin https://github.com/tu-usuario/repo.git
 
-<span class="text-secondary"># Opción B: actualiza la URL directamente</span>
+<span class="text-white-50"># Opción B: actualiza la URL directamente</span>
 $ git remote set-url origin https://github.com/tu-usuario/repo.git</pre>
                   </div>
                 </div>
@@ -403,15 +360,17 @@ $ git remote set-url origin https://github.com/tu-usuario/repo.git</pre>
 
               <div class="accordion-item border rounded-3 mb-2 shadow-sm">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button" data-bs-toggle="collapse" data-bs-target="#e2" aria-expanded="false" aria-controls="e2">
-                    <i class="bi bi-x-circle text-danger me-2" aria-hidden="true"></i>rejected — non-fast-forward (push rechazado)
+                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#e2"
+                          aria-expanded="false" aria-controls="e2">
+                    <i class="bi bi-x-circle text-danger me-2"></i>rejected — non-fast-forward (push rechazado)
                   </button>
                 </h3>
                 <div id="e2" class="accordion-collapse collapse" data-bs-parent="#erroresAccordion">
-                  <div class="accordion-body text-secondary small">
-                    El remoto tiene commits que no tienes localmente. Primero integra esos cambios:
-                    <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small overflow-auto mt-2">$ git pull --rebase origin main
-<span class="text-secondary"># Resuelve conflictos si los hay, luego:</span>
+                  <div class="accordion-body small">
+                    El remoto tiene commits que no tienes localmente. Integra primero esos cambios:
+                    <pre class="bg-dark text-white p-3 rounded-3 border border-secondary font-monospace small mt-2">$ git pull --rebase origin main
+<span class="text-white-50"># Resuelve conflictos si los hay, luego:</span>
 $ git push</pre>
                   </div>
                 </div>
@@ -419,16 +378,18 @@ $ git push</pre>
 
               <div class="accordion-item border rounded-3 mb-2 shadow-sm">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button" data-bs-toggle="collapse" data-bs-target="#e3" aria-expanded="false" aria-controls="e3">
-                    <i class="bi bi-x-circle text-danger me-2" aria-hidden="true"></i>Authentication failed / 403 Forbidden
+                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#e3"
+                          aria-expanded="false" aria-controls="e3">
+                    <i class="bi bi-x-circle text-danger me-2"></i>Authentication failed / 403 Forbidden
                   </button>
                 </h3>
                 <div id="e3" class="accordion-collapse collapse" data-bs-parent="#erroresAccordion">
-                  <div class="accordion-body text-secondary small">
-                    Desde 2021 GitHub no acepta contraseñas por HTTPS. Debes usar un <strong>token de acceso personal (PAT)</strong> como contraseña:
+                  <div class="accordion-body small">
+                    Desde 2021 GitHub no acepta contraseñas por HTTPS. Usa un <strong>token de acceso personal (PAT)</strong>:
                     <ol class="mt-2 ps-3">
                       <li>Ve a <strong>GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)</strong>.</li>
-                      <li>Genera un nuevo token con permisos <code>repo</code>.</li>
+                      <li>Genera un token con permisos <code>repo</code>.</li>
                       <li>Úsalo como contraseña cuando Git te la pida.</li>
                     </ol>
                   </div>
@@ -437,12 +398,14 @@ $ git push</pre>
 
               <div class="accordion-item border rounded-3 mb-2 shadow-sm">
                 <h3 class="accordion-header">
-                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button" data-bs-toggle="collapse" data-bs-target="#e4" aria-expanded="false" aria-controls="e4">
-                    <i class="bi bi-x-circle text-danger me-2" aria-hidden="true"></i>nothing to commit, working tree clean
+                  <button class="accordion-button collapsed rounded-3 fw-semibold small" type="button"
+                          data-bs-toggle="collapse" data-bs-target="#e4"
+                          aria-expanded="false" aria-controls="e4">
+                    <i class="bi bi-x-circle text-danger me-2"></i>nothing to commit, working tree clean
                   </button>
                 </h3>
                 <div id="e4" class="accordion-collapse collapse" data-bs-parent="#erroresAccordion">
-                  <div class="accordion-body text-secondary small">
+                  <div class="accordion-body small">
                     No hay cambios nuevos para commitear. Guarda cambios en algún archivo y vuelve a ejecutar <code>git add .</code> y <code>git commit</code>.
                   </div>
                 </div>
@@ -453,22 +416,22 @@ $ git push</pre>
         </div>
       </section>
 
-    </div><!-- fin col contenido -->
-  </div><!-- fin row -->
+    </div>
+  </div>
 </main>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white py-4" role="contentinfo">
+<footer class="bg-dark text-white py-4">
   <div class="container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
       <span class="fw-semibold">
-        <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
+        <span class="badge bg-white bg-opacity-10 me-1 rounded-2">T3</span>Taller 3
       </span>
       <span class="small text-white-50">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>
 
-<script src="../assets/js/bootstrap.bundle.min.js" defer></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

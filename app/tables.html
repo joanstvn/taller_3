@@ -12,46 +12,48 @@
   <meta name="theme-color" content="#ffffff" />
   <link rel="preload" href="../assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="../assets/css/bootstrap.min.css"></noscript>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
 </head>
 <body class="bg-light">
 
 <a href="#main" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
+<!-- NAVBAR APP -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación de la aplicación">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="../index.html#inicio" aria-label="Taller 3 — Inicio">
+    <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 — App">
       <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#appNavMenu" aria-controls="appNavMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav mx-auto gap-1" role="menubar">
+    <div class="collapse navbar-collapse" id="appNavMenu">
+      <ul class="navbar-nav me-auto gap-1" role="menubar">
         <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="../index.html#inicio" role="menuitem">Inicio</a>
-        </li>
-        <li class="nav-item dropdown" role="none">
-          <a class="nav-link dropdown-toggle px-3 rounded-pill" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">Secciones</a>
-          <ul class="dropdown-menu rounded-3 shadow-sm border-0">
-            <li><a class="dropdown-item" href="../index.html#servicios">Servicios</a></li>
-            <li><a class="dropdown-item" href="../index.html#equipo">Equipo</a></li>
-            <li><a class="dropdown-item" href="../index.html#precios">Precios</a></li>
-            <li><a class="dropdown-item" href="../index.html#faq">Preguntas frecuentes</a></li>
-            <li><a class="dropdown-item" href="../index.html#contacto">Contacto</a></li>
-          </ul>
+          <a class="nav-link px-3 rounded-pill" href="index.html" role="menuitem">
+            <i class="bi bi-house-door me-1" aria-hidden="true"></i>Inicio
+          </a>
         </li>
         <li class="nav-item" role="none">
-          <a class="nav-link active px-3 rounded-pill" href="tables.html" role="menuitem" aria-current="page">Tabla</a>
+          <a class="nav-link active px-3 rounded-pill" href="tables.html" role="menuitem" aria-current="page">
+            <i class="bi bi-table me-1" aria-hidden="true"></i>Tabla
+          </a>
         </li>
         <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="forms.html" role="menuitem">Formularios</a>
+          <a class="nav-link px-3 rounded-pill" href="forms.html" role="menuitem">
+            <i class="bi bi-ui-checks me-1" aria-hidden="true"></i>Formularios
+          </a>
         </li>
         <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="github.html" role="menuitem">GitHub</a>
+          <a class="nav-link px-3 rounded-pill" href="github.html" role="menuitem">
+            <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub
+          </a>
         </li>
       </ul>
-      <a href="forms.html" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
+      <a href="../index.html" class="btn btn-outline-dark rounded-pill px-4 ms-2">
+        <i class="bi bi-box-arrow-left me-1" aria-hidden="true"></i>Salir
+      </a>
     </div>
   </div>
 </nav>
@@ -111,7 +113,7 @@
       <span class="fw-semibold">
         <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
       </span>
-      <span class="small" style="color:rgba(255,255,255,0.5)">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
+      <span class="small text-white-50">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>

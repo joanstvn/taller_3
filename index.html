@@ -34,7 +34,8 @@
 </head>
 <body class="bg-light">
 
-<a href="#servicios" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
+<!-- Saltar al contenido principal (Actualizado para apuntar al <main>) -->
+<a href="#contenido-principal" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
 
 <!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
@@ -46,12 +47,16 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav mx-auto gap-1" role="menubar">
+      <ul class="navbar-nav me-auto gap-1" role="menubar">
         <li class="nav-item" role="none">
-          <a class="nav-link active px-3 rounded-pill" href="#inicio" role="menuitem" aria-current="page">Inicio</a>
+          <a class="nav-link active px-3 rounded-pill" href="#inicio" role="menuitem" aria-current="page">
+            <i class="bi bi-house-door me-1" aria-hidden="true"></i>Inicio
+          </a>
         </li>
         <li class="nav-item dropdown" role="none">
-          <a class="nav-link dropdown-toggle px-3 rounded-pill" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">Secciones</a>
+          <a class="nav-link dropdown-toggle px-3 rounded-pill" href="#" role="menuitem" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-layers me-1" aria-hidden="true"></i>Secciones
+          </a>
           <ul class="dropdown-menu rounded-3 shadow-sm border-0">
             <li><a class="dropdown-item" href="#servicios">Servicios</a></li>
             <li><a class="dropdown-item" href="#equipo">Equipo</a></li>
@@ -61,404 +66,409 @@
           </ul>
         </li>
         <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="app/tables.html" role="menuitem">Tabla</a>
-        </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="app/forms.html" role="menuitem">Formularios</a>
-        </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="app/github.html" role="menuitem">GitHub</a>
+          <a class="nav-link px-3 rounded-pill" href="https://github.com/joanstvn/taller_3" target="_blank" rel="noopener" role="menuitem">
+            <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub
+          </a>
         </li>
       </ul>
-      <a href="app/forms.html" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
+      <a href="app/index.html" class="btn btn-dark rounded-pill px-4 ms-2">Ingresar</a>
     </div>
   </div>
 </nav>
 
-<!-- ══════════ SECCIÓN 1: CAROUSEL ══════════ -->
-<section id="inicio" class="vh-100" aria-label="Galería de imágenes destacadas">
-  <div id="carouselTaller" class="carousel slide h-100" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselTaller" data-bs-slide-to="0" class="active" aria-label="Ir a la imagen 1 — Chicago" aria-current="true"></button>
-      <button type="button" data-bs-target="#carouselTaller" data-bs-slide-to="1" aria-label="Ir a la imagen 2 — Los Ángeles"></button>
-      <button type="button" data-bs-target="#carouselTaller" data-bs-slide-to="2" aria-label="Ir a la imagen 3 — Nueva York"></button>
-    </div>
-    <div class="carousel-inner h-100">
-      <div class="carousel-item active h-100">
-        <img src="./assets/img/chicago.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales" width="1920" height="1080" fetchpriority="high" decoding="async">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="./assets/img/la.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista de Los Ángeles desde las alturas, representando alcance global de nuestros servicios" width="1920" height="1080" loading="lazy" decoding="async">
-      </div>
-      <div class="carousel-item h-100">
-        <img src="./assets/img/ny.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Skyline de Nueva York de noche, símbolo de la ambición y escala de nuestros proyectos" width="1920" height="1080" loading="lazy" decoding="async">
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselTaller" data-bs-slide="prev" aria-label="Imagen anterior">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselTaller" data-bs-slide="next" aria-label="Imagen siguiente">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    </button>
-  </div>
-</section>
+<!-- ══════════ CONTENIDO PRINCIPAL (Añadido el landmark) ══════════ -->
+<main id="contenido-principal" tabindex="-1">
 
-<!-- ══════════ SECCIÓN 2: SERVICIOS ══════════ -->
-<section id="servicios" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="servicios-titulo">
-  <div class="container py-5">
-    <div class="row justify-content-between align-items-end mb-5">
-      <div class="col-lg-5">
-        <p class="text-uppercase text-muted small fw-semibold mb-1">Servicios</p>
-        <h2 id="servicios-titulo" class="display-5 fw-bold mb-0">Lo que hacemos bien.</h2>
+  <!-- ══════════ SECCIÓN 1: CAROUSEL ══════════ -->
+  <section id="inicio" class="vh-100" aria-label="Galería de imágenes destacadas">
+    <div id="carouselTaller" class="carousel slide h-100" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselTaller" data-bs-slide-to="0" class="active" aria-label="Ir a la imagen 1 — Chicago" aria-current="true"></button>
+        <button type="button" data-bs-target="#carouselTaller" data-bs-slide-to="1" aria-label="Ir a la imagen 2 — Los Ángeles"></button>
+        <button type="button" data-bs-target="#carouselTaller" data-bs-slide-to="2" aria-label="Ir a la imagen 3 — Nueva York"></button>
       </div>
+      <div class="carousel-inner h-100">
+        <div class="carousel-item active h-100">
+          <img src="./assets/img/chicago.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales" width="1920" height="1080" fetchpriority="high" decoding="async">
+        </div>
+        <div class="carousel-item h-100">
+          <img src="./assets/img/la.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista de Los Ángeles desde las alturas, representando alcance global de nuestros servicios" width="1920" height="1080" loading="lazy" decoding="async">
+        </div>
+        <div class="carousel-item h-100">
+          <img src="./assets/img/ny.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Skyline de Nueva York de noche, símbolo de la ambición y escala de nuestros proyectos" width="1920" height="1080" loading="lazy" decoding="async">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselTaller" data-bs-slide="prev" aria-label="Imagen anterior">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselTaller" data-bs-slide="next" aria-label="Imagen siguiente">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
-    <div class="row g-3">
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body">
-            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
-              <i class="bi bi-code-slash fs-5 text-dark"></i>
-            </div>
-            <h3 class="h5 fw-semibold mb-2">Desarrollo Web</h3>
-            <p class="text-secondary small mb-0">Sitios modernos, rápidos y accesibles con las mejores tecnologías del ecosistema actual.</p>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body">
-            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
-              <i class="bi bi-palette2 fs-5 text-dark"></i>
-            </div>
-            <h3 class="h5 fw-semibold mb-2">Diseño UI/UX</h3>
-            <p class="text-secondary small mb-0">Interfaces intuitivas centradas en el usuario con sistemas de diseño escalables y coherentes.</p>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body">
-            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
-              <i class="bi bi-bar-chart-line fs-5 text-dark"></i>
-            </div>
-            <h3 class="h5 fw-semibold mb-2">Analítica</h3>
-            <p class="text-secondary small mb-0">Seguimiento y análisis de datos en tiempo real para tomar decisiones informadas.</p>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body">
-            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
-              <i class="bi bi-shield-check fs-5 text-dark"></i>
-            </div>
-            <h3 class="h5 fw-semibold mb-2">Seguridad</h3>
-            <p class="text-secondary small mb-0">Auditorías y mejores prácticas para mantener tu proyecto protegido en todo momento.</p>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body">
-            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
-              <i class="bi bi-cloud-upload fs-5 text-dark"></i>
-            </div>
-            <h3 class="h5 fw-semibold mb-2">Cloud &amp; DevOps</h3>
-            <p class="text-secondary small mb-0">Pipelines automatizados, contenedores y arquitecturas cloud-native que escalan sin fricción.</p>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body">
-            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
-              <i class="bi bi-headset fs-5 text-dark"></i>
-            </div>
-            <h3 class="h5 fw-semibold mb-2">Soporte 24/7</h3>
-            <p class="text-secondary small mb-0">Disponibles en todo momento con SLA garantizado y tiempo de respuesta comprometido.</p>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════ SECCIÓN 3: EQUIPO ══════════ -->
-<section id="equipo" class="bg-light d-flex align-items-center min-vh-100" aria-labelledby="equipo-titulo">
-  <div class="container py-5">
-    <div class="row justify-content-between align-items-end mb-5">
-      <div class="col-lg-5">
-        <p class="text-uppercase text-muted small fw-semibold mb-1">Equipo</p>
-        <h2 id="equipo-titulo" class="display-5 fw-bold mb-0">Las personas detrás del producto.</h2>
+  <!-- ══════════ SECCIÓN 2: SERVICIOS ══════════ -->
+  <section id="servicios" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="servicios-titulo">
+    <div class="container py-5">
+      <div class="row justify-content-between align-items-end mb-5">
+        <div class="col-lg-5">
+          <p class="text-uppercase text-muted small fw-semibold mb-1">Servicios</p>
+          <h2 id="servicios-titulo" class="display-5 fw-bold mb-0">Lo que hacemos bien.</h2>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body">
+              <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
+                <i class="bi bi-code-slash fs-5 text-dark"></i>
+              </div>
+              <h3 class="h5 fw-semibold mb-2">Desarrollo Web</h3>
+              <p class="text-secondary small mb-0">Sitios modernos, rápidos y accesibles con las mejores tecnologías del ecosistema actual.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body">
+              <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
+                <i class="bi bi-palette2 fs-5 text-dark"></i>
+              </div>
+              <h3 class="h5 fw-semibold mb-2">Diseño UI/UX</h3>
+              <p class="text-secondary small mb-0">Interfaces intuitivas centradas en el usuario con sistemas de diseño escalables y coherentes.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body">
+              <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
+                <i class="bi bi-bar-chart-line fs-5 text-dark"></i>
+              </div>
+              <h3 class="h5 fw-semibold mb-2">Analítica</h3>
+              <p class="text-secondary small mb-0">Seguimiento y análisis de datos en tiempo real para tomar decisiones informadas.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body">
+              <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
+                <i class="bi bi-shield-check fs-5 text-dark"></i>
+              </div>
+              <h3 class="h5 fw-semibold mb-2">Seguridad</h3>
+              <p class="text-secondary small mb-0">Auditorías y mejores prácticas para mantener tu proyecto protegido en todo momento.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body">
+              <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
+                <i class="bi bi-cloud-upload fs-5 text-dark"></i>
+              </div>
+              <h3 class="h5 fw-semibold mb-2">Cloud &amp; DevOps</h3>
+              <p class="text-secondary small mb-0">Pipelines automatizados, contenedores y arquitecturas cloud-native que escalan sin fricción.</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body">
+              <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-2 mb-3" aria-hidden="true">
+                <i class="bi bi-headset fs-5 text-dark"></i>
+              </div>
+              <h3 class="h5 fw-semibold mb-2">Soporte 24/7</h3>
+              <p class="text-secondary small mb-0">Disponibles en todo momento con SLA garantizado y tiempo de respuesta comprometido.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </div>
-    <div class="row g-3">
-      <div class="col-12 col-lg-5">
-        <article class="card h-100 bg-dark text-white border-0 rounded-4 p-2">
-          <div class="card-body">
-            <div class="bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mb-3" style="width:54px;height:54px" aria-hidden="true">
-              <i class="bi bi-person-circle fs-3 text-white"></i>
-            </div>
-            <h3 class="h5 fw-semibold text-white mb-0">Joan Rios</h3>
-            <p class="text-uppercase small fw-semibold mb-2 text-white-50">Lead Developer</p>
-            <p class="small mb-3 text-white-50">Arquitecto full-stack con 8 años en proyectos enterprise. Lidera con enfoque estratégico y tecnologías modernas.</p>
-            <div class="d-flex flex-wrap gap-1 mb-3">
-              <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white-50">React</span>
-              <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white-50">Node.js</span>
-              <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white-50">AWS</span>
-            </div>
-          </div>
-        </article>
+  </section>
+
+  <!-- ══════════ SECCIÓN 3: EQUIPO ══════════ -->
+  <section id="equipo" class="bg-light d-flex align-items-center min-vh-100" aria-labelledby="equipo-titulo">
+    <div class="container py-5">
+      <div class="row justify-content-between align-items-end mb-5">
+        <div class="col-lg-5">
+          <p class="text-uppercase text-muted small fw-semibold mb-1">Equipo</p>
+          <h2 id="equipo-titulo" class="display-5 fw-bold mb-0">Las personas detrás del producto.</h2>
+        </div>
       </div>
-      <div class="col-12 col-lg-7">
-        <div class="row g-3 h-100">
-          <div class="col-12">
-            <article class="card border rounded-4 shadow-sm p-1">
-              <div class="card-body d-flex gap-3 align-items-start">
-                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:54px;height:54px" aria-hidden="true">
-                  <i class="bi bi-person-circle fs-3 text-secondary"></i>
-                </div>
-                <div>
-                  <h3 class="h5 fw-semibold mb-0">Ana García</h3>
-                  <p class="text-uppercase text-muted small fw-semibold mb-1">UX/UI Designer</p>
-                  <p class="text-secondary small mb-2">Especialista en sistemas de diseño y experiencias accesibles. Combina estética y usabilidad.</p>
-                  <div class="d-flex flex-wrap gap-1">
-                    <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Figma</span>
-                    <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Design Systems</span>
-                    <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Accesibilidad</span>
+      <div class="row g-3">
+        <div class="col-12 col-lg-5">
+          <article class="card h-100 bg-dark text-white border-0 rounded-4 p-2">
+            <div class="card-body">
+              <div class="bg-white bg-opacity-10 rounded-circle d-flex align-items-center justify-content-center mb-3" style="width:54px;height:54px" aria-hidden="true">
+                <i class="bi bi-person-circle fs-3 text-white"></i>
+              </div>
+              <h3 class="h5 fw-semibold text-white mb-0">Joan Rios</h3>
+              <p class="text-uppercase small fw-semibold mb-2 text-white-50">Lead Developer</p>
+              <p class="small mb-3 text-white-50">Arquitecto full-stack con 8 años en proyectos enterprise. Lidera con enfoque estratégico y tecnologías modernas.</p>
+              <div class="d-flex flex-wrap gap-1 mb-3">
+                <!-- CORREGIDO: text-white-50 cambiado a text-white -->
+                <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white">React</span>
+                <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white">Node.js</span>
+                <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white">AWS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-lg-7">
+          <div class="row g-3 h-100">
+            <div class="col-12">
+              <article class="card border rounded-4 shadow-sm p-1">
+                <div class="card-body d-flex gap-3 align-items-start">
+                  <div class="bg-light rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width:54px;height:54px" aria-hidden="true">
+                    <i class="bi bi-person-circle fs-3 text-secondary"></i>
+                  </div>
+                  <div>
+                    <h3 class="h5 fw-semibold mb-0">Ana García</h3>
+                    <p class="text-uppercase text-muted small fw-semibold mb-1">UX/UI Designer</p>
+                    <p class="text-secondary small mb-2">Especialista en sistemas de diseño y experiencias accesibles. Combina estética y usabilidad.</p>
+                    <div class="d-flex flex-wrap gap-1">
+                      <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Figma</span>
+                      <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Design Systems</span>
+                      <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Accesibilidad</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </article>
-          </div>
-          <div class="col-6">
-            <article class="card border rounded-4 shadow-sm text-center h-100 p-1">
-              <div class="card-body">
-                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width:54px;height:54px" aria-hidden="true">
-                  <i class="bi bi-person-circle fs-3 text-secondary"></i>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="card border rounded-4 shadow-sm text-center h-100 p-1">
+                <div class="card-body">
+                  <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width:54px;height:54px" aria-hidden="true">
+                    <i class="bi bi-person-circle fs-3 text-secondary"></i>
+                  </div>
+                  <h3 class="h5 fw-semibold mb-0">Carlos López</h3>
+                  <p class="text-uppercase text-muted small fw-semibold mb-2">Backend Dev</p>
+                  <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1 me-1">Python</span>
+                  <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">AWS</span>
                 </div>
-                <h3 class="h5 fw-semibold mb-0">Carlos López</h3>
-                <p class="text-uppercase text-muted small fw-semibold mb-2">Backend Dev</p>
-                <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1 me-1">Python</span>
-                <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">AWS</span>
-              </div>
-            </article>
-          </div>
-          <div class="col-6">
-            <article class="card border rounded-4 shadow-sm text-center h-100 p-1">
-              <div class="card-body">
-                <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width:54px;height:54px" aria-hidden="true">
-                  <i class="bi bi-person-circle fs-3 text-secondary"></i>
+              </article>
+            </div>
+            <div class="col-6">
+              <article class="card border rounded-4 shadow-sm text-center h-100 p-1">
+                <div class="card-body">
+                  <div class="bg-light rounded-circle d-flex align-items-center justify-content-center mx-auto mb-2" style="width:54px;height:54px" aria-hidden="true">
+                    <i class="bi bi-person-circle fs-3 text-secondary"></i>
+                  </div>
+                  <h3 class="h5 fw-semibold mb-0">Laura Martínez</h3>
+                  <p class="text-uppercase text-muted small fw-semibold mb-2">Data Analyst</p>
+                  <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1 me-1">SQL</span>
+                  <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Power BI</span>
                 </div>
-                <h3 class="h5 fw-semibold mb-0">Laura Martínez</h3>
-                <p class="text-uppercase text-muted small fw-semibold mb-2">Data Analyst</p>
-                <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1 me-1">SQL</span>
-                <span class="badge bg-light text-dark fw-normal rounded-pill px-3 py-1">Power BI</span>
-              </div>
-            </article>
+              </article>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ══════════ SECCIÓN 4: PRECIOS ══════════ -->
-<section id="precios" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="precios-titulo">
-  <div class="container py-5">
-    <div class="text-center mb-5">
-      <p class="text-uppercase text-muted small fw-semibold mb-1">Precios</p>
-      <h2 id="precios-titulo" class="display-5 fw-bold">Planes transparentes, sin sorpresas.</h2>
-    </div>
-    <div class="row g-3 justify-content-center">
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body d-flex flex-column">
-            <span class="badge bg-light text-dark fw-semibold text-uppercase rounded-pill px-3 py-2 mb-3 align-self-start">Starter</span>
-            <div class="mb-1"><span class="display-5 fw-bold">$1.200</span><span class="text-muted small">/mes</span></div>
-            <p class="text-secondary small mb-3">Ideal para landing pages y proyectos pequeños.</p>
-            <hr class="my-3">
-            <ul class="list-unstyled flex-grow-1" aria-label="Características del plan Starter">
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>1 sitio web</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Soporte por email</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Hosting básico</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-muted opacity-50"><i class="bi bi-x-lg" aria-hidden="true"></i><s>Analítica avanzada</s></li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-muted opacity-50"><i class="bi bi-x-lg" aria-hidden="true"></i><s>DevOps incluido</s></li>
-            </ul>
-            <button class="btn btn-dark rounded-pill w-100 mt-3">Empezar con Starter</button>
-          </div>
-        </article>
+  <!-- ══════════ SECCIÓN 4: PRECIOS ══════════ -->
+  <section id="precios" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="precios-titulo">
+    <div class="container py-5">
+      <div class="text-center mb-5">
+        <p class="text-uppercase text-muted small fw-semibold mb-1">Precios</p>
+        <h2 id="precios-titulo" class="display-5 fw-bold">Planes transparentes, sin sorpresas.</h2>
       </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 bg-dark text-white border-0 rounded-4 p-1">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex align-items-center gap-2 mb-3">
-              <span class="badge bg-white bg-opacity-10 fw-semibold text-uppercase rounded-pill px-3 py-2 text-white-50">Pro</span>
-              <span class="badge bg-white bg-opacity-25 text-white fw-semibold rounded-pill px-3 py-2">Más popular</span>
+      <div class="row g-3 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-light text-dark fw-semibold text-uppercase rounded-pill px-3 py-2 mb-3 align-self-start">Starter</span>
+              <div class="mb-1"><span class="display-5 fw-bold">$1.200</span><span class="text-muted small">/mes</span></div>
+              <p class="text-secondary small mb-3">Ideal para landing pages y proyectos pequeños.</p>
+              <hr class="my-3">
+              <ul class="list-unstyled flex-grow-1" aria-label="Características del plan Starter">
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>1 sitio web</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Soporte por email</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Hosting básico</li>
+                <!-- CORREGIDO: Eliminado opacity-50 para mejorar el contraste -->
+                <li class="d-flex align-items-center gap-2 mb-2 small text-muted"><i class="bi bi-x-lg" aria-hidden="true"></i><s>Analítica avanzada</s></li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-muted"><i class="bi bi-x-lg" aria-hidden="true"></i><s>DevOps incluido</s></li>
+              </ul>
+              <button class="btn btn-dark rounded-pill w-100 mt-3">Empezar con Starter</button>
             </div>
-            <div class="mb-1"><span class="display-5 fw-bold text-white">$3.500</span><span class="small text-white-50">/mes</span></div>
-            <p class="small mb-3 text-white-50">Para equipos y productos en crecimiento activo.</p>
-            <hr class="border-white border-opacity-10 my-3">
-            <ul class="list-unstyled flex-grow-1" aria-label="Características del plan Pro">
-              <li class="d-flex align-items-center gap-2 mb-2 small text-white-50"><i class="bi bi-check-lg" aria-hidden="true"></i>Hasta 5 proyectos</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-white-50"><i class="bi bi-check-lg" aria-hidden="true"></i>Soporte 24/7</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-white-50"><i class="bi bi-check-lg" aria-hidden="true"></i>Cloud escalable</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-white-50"><i class="bi bi-check-lg" aria-hidden="true"></i>Analítica avanzada</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-white-50"><i class="bi bi-check-lg" aria-hidden="true"></i>DevOps incluido</li>
-            </ul>
-            <button class="btn btn-light text-dark rounded-pill w-100 mt-3">Empezar con Pro</button>
-          </div>
-        </article>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <article class="card h-100 border rounded-4 shadow-sm p-1">
-          <div class="card-body d-flex flex-column">
-            <span class="badge bg-light text-dark fw-semibold text-uppercase rounded-pill px-3 py-2 mb-3 align-self-start">Enterprise</span>
-            <div class="mb-1"><span class="display-5 fw-bold">Custom</span></div>
-            <p class="text-secondary small mb-3">Soluciones a medida para grandes organizaciones.</p>
-            <hr class="my-3">
-            <ul class="list-unstyled flex-grow-1" aria-label="Características del plan Enterprise">
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Proyectos ilimitados</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>SLA garantizado</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Arquitectura dedicada</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Consultor asignado</li>
-              <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Onboarding personalizado</li>
-            </ul>
-            <button class="btn btn-dark rounded-pill w-100 mt-3">Hablar con ventas</button>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ SECCIÓN 5: FAQ ══════════ -->
-<section id="faq" class="bg-light d-flex align-items-center min-vh-100" aria-labelledby="faq-titulo">
-  <div class="container py-5">
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <div class="text-center mb-5">
-          <p class="text-uppercase text-muted small fw-semibold mb-1">Preguntas frecuentes</p>
-          <h2 id="faq-titulo" class="display-5 fw-bold">Todo lo que necesitas saber antes de empezar.</h2>
+          </article>
         </div>
-        <div class="accordion accordion-flush" id="faqAccordion">
-          <div class="accordion-item border rounded-3 mb-2 shadow-sm">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
-                ¿Cuánto tiempo tarda un proyecto típico?
-              </button>
-            </h3>
-            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-secondary small">Depende del alcance. Una landing puede estar lista en 2 semanas; una aplicación completa toma entre 2 y 4 meses con fases iterativas y demos semanales.</div>
-            </div>
-          </div>
-          <div class="accordion-item border rounded-3 mb-2 shadow-sm">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
-                ¿Trabajan con empresas fuera de Colombia?
-              </button>
-            </h3>
-            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-secondary small">Sí, trabajamos con clientes en toda Latinoamérica y España. Manejamos reuniones remotas y documentación en español o inglés según se requiera.</div>
-            </div>
-          </div>
-          <div class="accordion-item border rounded-3 mb-2 shadow-sm">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
-                ¿Puedo ver el progreso durante el desarrollo?
-              </button>
-            </h3>
-            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-secondary small">Absolutamente. Cada proyecto tiene un tablero compartido con sprints, demos semanales y acceso a un entorno de staging para revisar avances en tiempo real.</div>
-            </div>
-          </div>
-          <div class="accordion-item border rounded-3 mb-2 shadow-sm">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
-                ¿Ofrecen mantenimiento después del lanzamiento?
-              </button>
-            </h3>
-            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-secondary small">Sí, todos los planes incluyen al menos 30 días de soporte post-lanzamiento. También ofrecemos planes de mantenimiento mensual adaptados a tus necesidades.</div>
-            </div>
-          </div>
-          <div class="accordion-item border rounded-3 mb-2 shadow-sm">
-            <h3 class="accordion-header">
-              <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
-                ¿Cómo es el proceso de pago?
-              </button>
-            </h3>
-            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-              <div class="accordion-body text-secondary small">Trabajamos con facturación mensual o por hitos según el tipo de proyecto. Aceptamos transferencia bancaria y plataformas digitales. Todo queda estipulado en el contrato inicial.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════ SECCIÓN 6: CONTACTO ══════════ -->
-<section id="contacto" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="contacto-titulo">
-  <div class="container py-5">
-    <div class="row g-5 align-items-center">
-      <div class="col-12 col-lg-4">
-        <p class="text-uppercase text-muted small fw-semibold mb-1">Contacto</p>
-        <h2 id="contacto-titulo" class="display-5 fw-bold mb-3">¿Listo para empezar?</h2>
-        <p class="text-secondary mb-4">Cuéntanos tu proyecto y te respondemos en menos de 24 horas con una propuesta sin compromiso.</p>
-        <address class="fst-normal">
-          <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="bg-light rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px" aria-hidden="true">
-              <i class="bi bi-geo-alt-fill text-dark"></i>
-            </div>
-            <span class="text-secondary small">Medellín, Colombia</span>
-          </div>
-          <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="bg-light rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px" aria-hidden="true">
-              <i class="bi bi-envelope-fill text-dark"></i>
-            </div>
-            <a href="mailto:hola@taller3.com" class="text-secondary small text-decoration-none">hola@taller3.com</a>
-          </div>
-          <div class="d-flex align-items-center gap-3 mb-3">
-            <div class="bg-light rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px" aria-hidden="true">
-              <i class="bi bi-telephone-fill text-dark"></i>
-            </div>
-            <a href="tel:+573001234567" class="text-secondary small text-decoration-none">+57 300 123 4567</a>
-          </div>
-        </address>
-      </div>
-      <div class="col-12 col-lg-8">
-        <div class="card border rounded-4 shadow-sm p-2">
-          <div class="card-body">
-            <form novalidate>
-              <div class="row g-3">
-                <div class="col-12 col-md-6">
-                  <label for="nombre" class="form-label text-uppercase text-muted small fw-semibold">Nombre</label>
-                  <input type="text" id="nombre" name="nombre" class="form-control rounded-3 bg-light border" placeholder="Tu nombre completo" autocomplete="name" required aria-required="true">
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="email" class="form-label text-uppercase text-muted small fw-semibold">Email</label>
-                  <input type="email" id="email" name="email" class="form-control rounded-3 bg-light border" placeholder="tu@email.com" autocomplete="email" required aria-required="true">
-                </div>
-                <div class="col-12 col-md-6">
-                  <label for="empresa" class="form-label text-uppercase text-muted small fw-semibold">Empresa</label>
-                  <input type="text" id="empresa" name="empresa" class="form-control rounded-3 bg-light border" placeholder="Nombre de tu empresa" autocomplete="organization">
-                </div>
-                <div class="col-12">
-                  <label for="mensaje" class="form-label text-uppercase text-muted small fw-semibold">Mensaje</label>
-                  <textarea id="mensaje" name="mensaje" class="form-control rounded-3 bg-light border" rows="4" placeholder="Cuéntanos sobre tu proyecto, objetivos y tiempos..." required aria-required="true"></textarea>
-                </div>
-                <div class="col-12">
-                  <button type="submit" class="btn btn-dark rounded-pill w-100 py-2 fw-semibold">Enviar mensaje</button>
-                </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 bg-dark text-white border-0 rounded-4 p-1">
+            <div class="card-body d-flex flex-column">
+              <div class="d-flex align-items-center gap-2 mb-3">
+                <!-- CORREGIDO: text-white-50 cambiado a text-white -->
+                <span class="badge bg-white bg-opacity-10 fw-semibold text-uppercase rounded-pill px-3 py-2 text-white">Pro</span>
+                <span class="badge bg-white bg-opacity-25 text-white fw-semibold rounded-pill px-3 py-2">Más popular</span>
               </div>
-            </form>
+              <!-- CORREGIDO: text-white-50 cambiado a text-white-75 -->
+              <div class="mb-1"><span class="display-5 fw-bold text-white">$3.500</span><span class="small text-white-75">/mes</span></div>
+              <p class="small mb-3 text-white-75">Para equipos y productos en crecimiento activo.</p>
+              <hr class="border-white border-opacity-10 my-3">
+              <ul class="list-unstyled flex-grow-1" aria-label="Características del plan Pro">
+                <li class="d-flex align-items-center gap-2 mb-2 small text-white-75"><i class="bi bi-check-lg" aria-hidden="true"></i>Hasta 5 proyectos</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-white-75"><i class="bi bi-check-lg" aria-hidden="true"></i>Soporte 24/7</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-white-75"><i class="bi bi-check-lg" aria-hidden="true"></i>Cloud escalable</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-white-75"><i class="bi bi-check-lg" aria-hidden="true"></i>Analítica avanzada</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-white-75"><i class="bi bi-check-lg" aria-hidden="true"></i>DevOps incluido</li>
+              </ul>
+              <button class="btn btn-light text-dark rounded-pill w-100 mt-3">Empezar con Pro</button>
+            </div>
+          </article>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card h-100 border rounded-4 shadow-sm p-1">
+            <div class="card-body d-flex flex-column">
+              <span class="badge bg-light text-dark fw-semibold text-uppercase rounded-pill px-3 py-2 mb-3 align-self-start">Enterprise</span>
+              <div class="mb-1"><span class="display-5 fw-bold">Custom</span></div>
+              <p class="text-secondary small mb-3">Soluciones a medida para grandes organizaciones.</p>
+              <hr class="my-3">
+              <ul class="list-unstyled flex-grow-1" aria-label="Características del plan Enterprise">
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Proyectos ilimitados</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>SLA garantizado</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Arquitectura dedicada</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Consultor asignado</li>
+                <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Onboarding personalizado</li>
+              </ul>
+              <button class="btn btn-dark rounded-pill w-100 mt-3">Hablar con ventas</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ SECCIÓN 5: FAQ ══════════ -->
+  <section id="faq" class="bg-light d-flex align-items-center min-vh-100" aria-labelledby="faq-titulo">
+    <div class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="text-center mb-5">
+            <p class="text-uppercase text-muted small fw-semibold mb-1">Preguntas frecuentes</p>
+            <h2 id="faq-titulo" class="display-5 fw-bold">Todo lo que necesitas saber antes de empezar.</h2>
+          </div>
+          <div class="accordion accordion-flush" id="faqAccordion">
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false" aria-controls="faq1">
+                  ¿Cuánto tiempo tarda un proyecto típico?
+                </button>
+              </h3>
+              <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary small">Depende del alcance. Una landing puede estar lista en 2 semanas; una aplicación completa toma entre 2 y 4 meses con fases iterativas y demos semanales.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                  ¿Trabajan con empresas fuera de Colombia?
+                </button>
+              </h3>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary small">Sí, trabajamos con clientes en toda Latinoamérica y España. Manejamos reuniones remotas y documentación en español o inglés según se requiera.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                  ¿Puedo ver el progreso durante el desarrollo?
+                </button>
+              </h3>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary small">Absolutamente. Cada proyecto tiene un tablero compartido con sprints, demos semanales y acceso a un entorno de staging para revisar avances en tiempo real.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                  ¿Ofrecen mantenimiento después del lanzamiento?
+                </button>
+              </h3>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary small">Sí, todos los planes incluyen al menos 30 días de soporte post-lanzamiento. También ofrecemos planes de mantenimiento mensual adaptados a tus necesidades.</div>
+              </div>
+            </div>
+            <div class="accordion-item border rounded-3 mb-2 shadow-sm">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed rounded-3 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                  ¿Cómo es el proceso de pago?
+                </button>
+              </h3>
+              <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary small">Trabajamos con facturación mensual o por hitos según el tipo de proyecto. Aceptamos transferencia bancaria y plataformas digitales. Todo queda estipulado en el contrato inicial.</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ══════════ SECCIÓN 6: CONTACTO ══════════ -->
+  <section id="contacto" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="contacto-titulo">
+    <div class="container py-5">
+      <div class="row g-5 align-items-center">
+        <div class="col-12 col-lg-4">
+          <p class="text-uppercase text-muted small fw-semibold mb-1">Contacto</p>
+          <h2 id="contacto-titulo" class="display-5 fw-bold mb-3">¿Listo para empezar?</h2>
+          <p class="text-secondary mb-4">Cuéntanos tu proyecto y te respondemos en menos de 24 horas con una propuesta sin compromiso.</p>
+          <address class="fst-normal">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-light rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px" aria-hidden="true">
+                <i class="bi bi-geo-alt-fill text-dark"></i>
+              </div>
+              <span class="text-secondary small">Medellín, Colombia</span>
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-light rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px" aria-hidden="true">
+                <i class="bi bi-envelope-fill text-dark"></i>
+              </div>
+              <a href="mailto:hola@taller3.com" class="text-secondary small text-decoration-none">hola@taller3.com</a>
+            </div>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <div class="bg-light rounded-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px" aria-hidden="true">
+                <i class="bi bi-telephone-fill text-dark"></i>
+              </div>
+              <a href="tel:+573001234567" class="text-secondary small text-decoration-none">+57 300 123 4567</a>
+            </div>
+          </address>
+        </div>
+        <div class="col-12 col-lg-8">
+          <div class="card border rounded-4 shadow-sm p-2">
+            <div class="card-body">
+              <form novalidate>
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label for="nombre" class="form-label text-uppercase text-muted small fw-semibold">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" class="form-control rounded-3 bg-light border" placeholder="Tu nombre completo" autocomplete="name" required aria-required="true">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="email" class="form-label text-uppercase text-muted small fw-semibold">Email</label>
+                    <input type="email" id="email" name="email" class="form-control rounded-3 bg-light border" placeholder="tu@email.com" autocomplete="email" required aria-required="true">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label for="empresa" class="form-label text-uppercase text-muted small fw-semibold">Empresa</label>
+                    <input type="text" id="empresa" name="empresa" class="form-control rounded-3 bg-light border" placeholder="Nombre de tu empresa" autocomplete="organization">
+                  </div>
+                  <div class="col-12">
+                    <label for="mensaje" class="form-label text-uppercase text-muted small fw-semibold">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" class="form-control rounded-3 bg-light border" rows="4" placeholder="Cuéntanos sobre tu proyecto, objetivos y tiempos..." required aria-required="true"></textarea>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-dark rounded-pill w-100 py-2 fw-semibold">Enviar mensaje</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main> <!-- Fin del contenido principal -->
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="bg-dark text-white py-4" role="contentinfo">
@@ -467,7 +477,8 @@
       <span class="fw-semibold">
         <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
       </span>
-      <span class="small text-white-50">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
+      <!-- CORREGIDO: text-white-50 cambiado a text-white-75 -->
+      <span class="small text-white-75">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>

@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="color-scheme" content="light" />
+  <title>Taller 3</title>
+  <meta name="author" content="Joan Stiven Rios Valderrama" />
+  <meta name="description" content="Panel de aplicaciones de Taller 3." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="preload" href="../assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../assets/css/bootstrap.min.css"></noscript>
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
+</head>
+<body class="bg-light d-flex flex-column min-vh-100">
+
+<a href="#main" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
+
+<!-- ══════════ NAVBAR APP ══════════ -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación de la aplicación">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 — App">
+      <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#appNavMenu" aria-controls="appNavMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="appNavMenu">
+      <ul class="navbar-nav me-auto gap-1" role="menubar">
+        <li class="nav-item" role="none">
+          <a class="nav-link active px-3 rounded-pill" href="index.html" role="menuitem" aria-current="page">
+            <i class="bi bi-house-door me-1" aria-hidden="true"></i>Inicio
+          </a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link px-3 rounded-pill" href="tables.html" role="menuitem">
+            <i class="bi bi-table me-1" aria-hidden="true"></i>Tabla
+          </a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link px-3 rounded-pill" href="forms.html" role="menuitem">
+            <i class="bi bi-ui-checks me-1" aria-hidden="true"></i>Formularios
+          </a>
+        </li>
+        <li class="nav-item" role="none">
+          <a class="nav-link px-3 rounded-pill" href="github.html" role="menuitem">
+            <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub
+          </a>
+        </li>
+      </ul>
+      <a href="../index.html" class="btn btn-outline-dark rounded-pill px-4 ms-2">
+        <i class="bi bi-box-arrow-left me-1" aria-hidden="true"></i>Salir
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════ CONTENIDO ══════════ -->
+<main id="main" class="container py-5 flex-grow-1">
+  <div class="mb-5">
+    <h1 class="display-5 fw-bold mb-0">Bienvenido al área interna.</h1>
+  </div>
+  <div class="row g-3">
+    <div class="col-12 col-md-4">
+      <a href="tables.html" class="text-decoration-none">
+        <article class="card h-100 border rounded-4 shadow-sm p-1 hover-shadow" style="transition: transform .15s ease, box-shadow .15s ease;">
+          <div class="card-body d-flex flex-column gap-3">
+            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-3" style="width:52px;height:52px;" aria-hidden="true">
+              <i class="bi bi-table fs-4 text-dark"></i>
+            </div>
+            <div>
+              <h2 class="h5 fw-semibold mb-1 text-dark">Tabla</h2>
+              <p class="text-secondary small mb-0">Directorio interno de empleados con listado completo.</p>
+            </div>
+            <span class="small fw-semibold text-dark mt-auto">Ver tabla <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </article>
+      </a>
+    </div>
+    <div class="col-12 col-md-4">
+      <a href="forms.html" class="text-decoration-none">
+        <article class="card h-100 border rounded-4 shadow-sm p-1">
+          <div class="card-body d-flex flex-column gap-3">
+            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-3" style="width:52px;height:52px;" aria-hidden="true">
+              <i class="bi bi-ui-checks fs-4 text-dark"></i>
+            </div>
+            <div>
+              <h2 class="h5 fw-semibold mb-1 text-dark">Formularios</h2>
+              <p class="text-secondary small mb-0">Acceso a los formularios de registro e inicio de sesión.</p>
+            </div>
+            <span class="small fw-semibold text-dark mt-auto">Ver formularios <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </article>
+      </a>
+    </div>
+    <div class="col-12 col-md-4">
+      <a href="github.html" class="text-decoration-none">
+        <article class="card h-100 border rounded-4 shadow-sm p-1">
+          <div class="card-body d-flex flex-column gap-3">
+            <div class="bg-light rounded-3 d-inline-flex align-items-center justify-content-center p-3" style="width:52px;height:52px;" aria-hidden="true">
+              <i class="bi bi-github fs-4 text-dark"></i>
+            </div>
+            <div>
+              <h2 class="h5 fw-semibold mb-1 text-dark">GitHub</h2>
+              <p class="text-secondary small mb-0">Guía práctica de Git & GitHub desde VSCode paso a paso.</p>
+            </div>
+            <span class="small fw-semibold text-dark mt-auto">Ver guía <i class="bi bi-arrow-right" aria-hidden="true"></i></span>
+          </div>
+        </article>
+      </a>
+    </div>
+  </div>
+</main>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="bg-dark text-white py-4" role="contentinfo">
+  <div class="container">
+    <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <span class="fw-semibold">
+        <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
+      </span>
+      <span class="small text-white-50">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
