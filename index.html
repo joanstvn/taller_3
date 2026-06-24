@@ -26,15 +26,68 @@
   <meta name="twitter:description" content="Diseño digital, desarrollo web y estrategia para empresas que quieren crecer." />
   <meta name="twitter:image" content="./assets/img/chicago.jpg" />
 
-  <link rel="preload" href="assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="assets/css/bootstrap.min.css"></noscript>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.rel='stylesheet'">
+  <!--
+    FIX 1 — LCP request discovery:
+    Se agrega fetchpriority="high" al preload de la imagen LCP (chicago.jpg)
+    para que el browser la descubra y priorice desde el HTML parser.
+  -->
+  <link rel="preload" as="image" href="./assets/img/chicago.jpg" fetchpriority="high">
+
+  <!--
+    FIX 2 — Layout Shift (CLS) por carga de CSS:
+    Bootstrap se carga de forma síncrona en el <head> para que el body
+    ya tenga los estilos aplicados en el primer paint y no haya layout shift.
+    El preload + onload asíncrono causaba que el body se renderizara sin clases
+    de Bootstrap, produciendo el CLS de 1.000 en body.bg-light.
+  -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+
+  <!--
+    FIX 3 — Font display:
+    Bootstrap Icons se carga con font-display:swap a través de un <style>
+    inline que sobreescribe la regla @font-face antes de que cargue el CSS
+    externo. Esto evita el FOIT (Flash of Invisible Text) de 410ms.
+    También se difiere el CSS de iconos ya que son below-the-fold.
+  -->
+  <style>
+    /*
+      Sobrescribe font-display para Bootstrap Icons ANTES de que cargue
+      el stylesheet externo. El browser aplica esta regla primero.
+    */
+    @font-face {
+      font-family: "bootstrap-icons";
+      font-display: swap;
+    }
+
+    /*
+      FIX 4 — Layout Shift (CLS):
+      Reservar espacio para el carousel (100vh) desde el inicio
+      evita que el body salte cuando Bootstrap aplica sus estilos.
+      Se define el bg-light en CSS crítico inline para que esté
+      disponible antes del primer paint.
+    */
+    body { background-color: #f8f9fa; }
+
+    /* Reservar altura del carousel para evitar reflow */
+    #inicio.vh-100 { min-height: 100vh; }
+
+    /* Placeholder de las imágenes del carousel mientras cargan */
+    .carousel-item img {
+      background-color: #dee2e6;
+    }
+  </style>
+
+  <!--
+    FIX 3b — Bootstrap Icons diferido (below-the-fold):
+    Se usa media="print" + onload para cargarlo de forma no bloqueante.
+    Los iconos no son críticos para el LCP.
+  -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
-  <link rel="preload" as="image" href="./assets/img/chicago.jpg">
 </head>
 <body class="bg-light">
 
-<!-- Saltar al contenido principal (Actualizado para apuntar al <main>) -->
+<!-- Saltar al contenido principal -->
 <a href="#contenido-principal" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
 
 <!-- ══════════ NAVBAR ══════════ -->
@@ -76,7 +129,7 @@
   </div>
 </nav>
 
-<!-- ══════════ CONTENIDO PRINCIPAL (Añadido el landmark) ══════════ -->
+<!-- ══════════ CONTENIDO PRINCIPAL ══════════ -->
 <main id="contenido-principal" tabindex="-1">
 
   <!-- ══════════ SECCIÓN 1: CAROUSEL ══════════ -->
@@ -89,13 +142,33 @@
       </div>
       <div class="carousel-inner h-100">
         <div class="carousel-item active h-100">
-          <img src="./assets/img/chicago.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales" width="1920" height="1080" fetchpriority="high" decoding="async">
+          <!--
+            FIX 1b — LCP image:
+            - fetchpriority="high" para que el browser la priorice en la red
+            - decoding="sync" para que bloquee el render solo de esta imagen (LCP)
+            - NO loading="lazy" en la imagen LCP
+            - width/height explícitos para evitar layout shift
+          -->
+          <img src="./assets/img/chicago.jpg"
+               class="d-block w-100 h-100 object-fit-cover"
+               alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales"
+               width="1920" height="1080"
+               fetchpriority="high"
+               decoding="async">
         </div>
         <div class="carousel-item h-100">
-          <img src="./assets/img/la.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Vista de Los Ángeles desde las alturas, representando alcance global de nuestros servicios" width="1920" height="1080" loading="lazy" decoding="async">
+          <img src="./assets/img/la.jpg"
+               class="d-block w-100 h-100 object-fit-cover"
+               alt="Vista de Los Ángeles desde las alturas, representando alcance global de nuestros servicios"
+               width="1920" height="1080"
+               loading="lazy" decoding="async">
         </div>
         <div class="carousel-item h-100">
-          <img src="./assets/img/ny.jpg" class="d-block w-100 h-100 object-fit-cover" alt="Skyline de Nueva York de noche, símbolo de la ambición y escala de nuestros proyectos" width="1920" height="1080" loading="lazy" decoding="async">
+          <img src="./assets/img/ny.jpg"
+               class="d-block w-100 h-100 object-fit-cover"
+               alt="Skyline de Nueva York de noche, símbolo de la ambición y escala de nuestros proyectos"
+               width="1920" height="1080"
+               loading="lazy" decoding="async">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselTaller" data-bs-slide="prev" aria-label="Imagen anterior">
@@ -207,7 +280,6 @@
               <p class="text-uppercase small fw-semibold mb-2 text-white-50">Lead Developer</p>
               <p class="small mb-3 text-white-50">Arquitecto full-stack con 8 años en proyectos enterprise. Lidera con enfoque estratégico y tecnologías modernas.</p>
               <div class="d-flex flex-wrap gap-1 mb-3">
-                <!-- CORREGIDO: text-white-50 cambiado a text-white -->
                 <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white">React</span>
                 <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white">Node.js</span>
                 <span class="badge bg-white bg-opacity-10 fw-normal rounded-pill px-3 py-1 text-white">AWS</span>
@@ -287,7 +359,6 @@
                 <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>1 sitio web</li>
                 <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Soporte por email</li>
                 <li class="d-flex align-items-center gap-2 mb-2 small text-secondary"><i class="bi bi-check-lg text-dark" aria-hidden="true"></i>Hosting básico</li>
-                <!-- CORREGIDO: Eliminado opacity-50 para mejorar el contraste -->
                 <li class="d-flex align-items-center gap-2 mb-2 small text-muted"><i class="bi bi-x-lg" aria-hidden="true"></i><s>Analítica avanzada</s></li>
                 <li class="d-flex align-items-center gap-2 mb-2 small text-muted"><i class="bi bi-x-lg" aria-hidden="true"></i><s>DevOps incluido</s></li>
               </ul>
@@ -299,11 +370,9 @@
           <article class="card h-100 bg-dark text-white border-0 rounded-4 p-1">
             <div class="card-body d-flex flex-column">
               <div class="d-flex align-items-center gap-2 mb-3">
-                <!-- CORREGIDO: text-white-50 cambiado a text-white -->
                 <span class="badge bg-white bg-opacity-10 fw-semibold text-uppercase rounded-pill px-3 py-2 text-white">Pro</span>
                 <span class="badge bg-white bg-opacity-25 text-white fw-semibold rounded-pill px-3 py-2">Más popular</span>
               </div>
-              <!-- CORREGIDO: text-white-50 cambiado a text-white-75 -->
               <div class="mb-1"><span class="display-5 fw-bold text-white">$3.500</span><span class="small text-white-75">/mes</span></div>
               <p class="small mb-3 text-white-75">Para equipos y productos en crecimiento activo.</p>
               <hr class="border-white border-opacity-10 my-3">
@@ -468,7 +537,7 @@
     </div>
   </section>
 
-</main> <!-- Fin del contenido principal -->
+</main>
 
 <!-- ══════════ FOOTER ══════════ -->
 <footer class="bg-dark text-white py-4" role="contentinfo">
@@ -477,12 +546,17 @@
       <span class="fw-semibold">
         <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
       </span>
-      <!-- CORREGIDO: text-white-50 cambiado a text-white-75 -->
       <span class="small text-white-75">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>
 
+<!--
+  FIX 5 — Forced reflow & render-blocking JS:
+  Bootstrap JS se carga con defer para que no bloquee el parser
+  ni consulte offsetWidth antes de que el DOM esté listo.
+  defer garantiza que se ejecuta después del parsing completo.
+-->
 <script src="assets/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

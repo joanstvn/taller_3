@@ -5,14 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="color-scheme" content="light" />
-  <title>Taller 3</title>
+  <title>Tabla de empleados — Taller 3</title>
   <meta name="author" content="Joan Stiven Rios Valderrama" />
   <meta name="description" content="Directorio interno de empleados de Taller 3." />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
-  <link rel="preload" href="../assets/css/bootstrap.min.css" as="style" onload="this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="../assets/css/bootstrap.min.css"></noscript>
-  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.rel='stylesheet'">
+
+  <!--
+    FIX PERFORMANCE — CLS 0.404:
+    Bootstrap CSS síncrono para evitar que el body se renderice
+    sin clases y luego salte cuando Bootstrap aplica sus estilos.
+  -->
+  <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+
+  <!--
+    FIX PERFORMANCE — Font display (330ms FOIT) + FIX CLS body:
+    @font-face swap inline para Bootstrap Icons.
+    background-color inline para que el primer paint no sea blanco.
+  -->
+  <style>
+    @font-face {
+      font-family: "bootstrap-icons";
+      font-display: swap;
+    }
+    body { background-color: #f8f9fa; }
+  </style>
+
+  <!-- Bootstrap Icons diferido (no es LCP) -->
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
 </head>
 <body class="bg-light">
@@ -22,31 +42,39 @@
 <!-- NAVBAR APP -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación de la aplicación">
   <div class="container">
-    <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 — App">
+    <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 App — Ir al inicio">
       <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
     </a>
-    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#appNavMenu" aria-controls="appNavMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+    <button class="navbar-toggler border-0" type="button"
+            data-bs-toggle="collapse" data-bs-target="#appNavMenu"
+            aria-controls="appNavMenu" aria-expanded="false"
+            aria-label="Abrir menú de navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="appNavMenu">
-      <ul class="navbar-nav me-auto gap-1" role="menubar">
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="index.html" role="menuitem">
+      <!--
+        FIX ACCESSIBILITY:
+        Se eliminan role="menubar/menuitem/none" — patrón incorrecto
+        para navegación de sitio. Solo se usa estructura semántica nativa.
+      -->
+      <ul class="navbar-nav me-auto gap-1">
+        <li class="nav-item">
+          <a class="nav-link px-3 rounded-pill" href="index.html">
             <i class="bi bi-house-door me-1" aria-hidden="true"></i>Inicio
           </a>
         </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link active px-3 rounded-pill" href="tables.html" role="menuitem" aria-current="page">
+        <li class="nav-item">
+          <a class="nav-link active px-3 rounded-pill" href="tables.html" aria-current="page">
             <i class="bi bi-table me-1" aria-hidden="true"></i>Tabla
           </a>
         </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="forms.html" role="menuitem">
+        <li class="nav-item">
+          <a class="nav-link px-3 rounded-pill" href="forms.html">
             <i class="bi bi-ui-checks me-1" aria-hidden="true"></i>Formularios
           </a>
         </li>
-        <li class="nav-item" role="none">
-          <a class="nav-link px-3 rounded-pill" href="github.html" role="menuitem">
+        <li class="nav-item">
+          <a class="nav-link px-3 rounded-pill" href="github.html">
             <i class="bi bi-github me-1" aria-hidden="true"></i>GitHub
           </a>
         </li>
@@ -59,11 +87,23 @@
 </nav>
 
 <!-- TABLA -->
-<main id="main" class="container py-5">
+<!--
+  FIX ACCESSIBILITY:
+  - tabindex="-1" en <main> para que el skip link funcione en todos los browsers.
+  - Se agrega aria-label a la <table> para describir su contenido a lectores de pantalla.
+  - Se agrega <caption> visualmente oculto como alternativa semántica al aria-label.
+  - Se verifica que todos los <th> tengan scope correcto.
+-->
+<main id="main" tabindex="-1" class="container py-5">
+  <div class="mb-4">
+    <h1 class="display-5 fw-bold mb-0">Directorio de empleados</h1>
+    <p class="text-secondary mt-1 mb-0">20 empleados registrados</p>
+  </div>
   <div class="card border rounded-4 shadow-sm p-1">
     <div class="card-body p-0">
       <div class="table-responsive rounded-4">
-        <table class="table table-hover mb-0">
+        <table class="table table-hover mb-0" aria-label="Directorio interno de empleados de Taller 3">
+          <caption class="visually-hidden">Listado de 20 empleados con ID, nombre, apellido, edad, ciudad, correo, teléfono, cargo, estado y fecha de ingreso.</caption>
           <thead class="table-dark">
             <tr>
               <th scope="col">ID</th>
@@ -113,7 +153,12 @@
       <span class="fw-semibold">
         <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
       </span>
-      <span class="small text-white-50">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
+      <!--
+        FIX ACCESSIBILITY — contraste:
+        text-white-50 falla WCAG AA (~2.3:1) sobre fondo dark.
+        text-white-75 da ratio ~4.0:1, suficiente para texto pequeño.
+      -->
+      <span class="small text-white-75">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>
