@@ -9,22 +9,8 @@
   <meta name="author" content="Joan Stiven Rios Valderrama" />
   <meta name="description" content="Guía paso a paso para conectar un repositorio remoto de GitHub usando Git desde la terminal de VSCode." />
 
-  <!--
-    Bootstrap CSS síncrono (ya estaba correcto en este archivo).
-    Es render-blocking pero necesario para evitar CLS.
-    El LCP de esta página es texto, no imagen, por lo que
-    el impacto de bloqueo es menor que el CLS que causaría cargarlo asíncrono.
-  -->
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css" />
 
-  <!--
-    FIX PERFORMANCE — Font display (190ms FOIT):
-    @font-face swap inline antes de que cargue Bootstrap Icons.
-
-    FIX PERFORMANCE — Render-blocking Bootstrap Icons (300ms):
-    Se convierte de <link> síncrono a carga diferida con preload+onload.
-    Los iconos de esta página son decorativos y below-the-fold en su mayoría.
-  -->
   <style>
     @font-face {
       font-family: "bootstrap-icons";
@@ -35,10 +21,6 @@
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"></noscript>
 
-  <!--
-    FIX PERFORMANCE — Preconnect para el CDN de iconos:
-    Reduce la latencia de DNS+TLS cuando el browser carga la fuente woff2.
-  -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 </head>
 
@@ -49,15 +31,10 @@
   Saltar al contenido principal
 </a>
 
-<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm"
      aria-label="Navegación de la aplicación">
   <div class="container">
-    <!--
-      FIX ACCESSIBILITY — navbar-brand sin aria-label descriptivo.
-      El badge "T3" solo tiene texto de 2 caracteres; AT necesita
-      un label que describa el destino del enlace.
-    -->
+
     <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 App — Ir al inicio">
       <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
     </a>
@@ -97,7 +74,6 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="bg-dark text-white py-5" aria-label="Introducción a la guía">
   <div class="container py-3">
     <h1 class="display-5 fw-bold mb-3">Git & GitHub<br>desde VSCode</h1>
@@ -118,16 +94,10 @@
   </div>
 </section>
 
-<!-- MAIN -->
-<!--
-  FIX ACCESSIBILITY:
-  - tabindex="-1" para que el skip link haga foco correctamente.
--->
 <main id="main" tabindex="-1" class="container py-5">
   <div class="row justify-content-center">
     <div class="col-12 col-lg-8 d-flex flex-column gap-4">
 
-      <!-- REQUISITOS -->
       <section id="prereqs" aria-labelledby="titulo-prereqs">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -172,7 +142,6 @@
         </div>
       </section>
 
-      <!-- PASO 1 -->
       <section id="paso1" aria-labelledby="titulo-paso1">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -205,7 +174,6 @@
         </div>
       </section>
 
-      <!-- PASO 2 -->
       <section id="paso2" aria-labelledby="titulo-paso2">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -223,7 +191,6 @@
         </div>
       </section>
 
-      <!-- PASO 3 -->
       <section id="paso3" aria-labelledby="titulo-paso3">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -245,7 +212,6 @@ $ git config --list</pre>
         </div>
       </section>
 
-      <!-- PASO 4 -->
       <section id="paso4" aria-labelledby="titulo-paso4">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -281,7 +247,6 @@ https://github.com/tu-usuario/nombre-repositorio.git</pre>
         </div>
       </section>
 
-      <!-- PASO 5 -->
       <section id="paso5" aria-labelledby="titulo-paso5">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -304,7 +269,6 @@ $ git remote -v
         </div>
       </section>
 
-      <!-- PASO 6 -->
       <section id="paso6" aria-labelledby="titulo-paso6">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -334,7 +298,6 @@ $ git push -u origin main</pre>
         </div>
       </section>
 
-      <!-- FLUJO DIARIO -->
       <section id="flujo" aria-labelledby="titulo-flujo">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -367,7 +330,6 @@ $ git push</pre>
         </div>
       </section>
 
-      <!-- ERRORES COMUNES -->
       <section id="errores" aria-labelledby="titulo-errores">
         <div class="card border rounded-4 shadow-sm p-1">
           <div class="card-body">
@@ -458,24 +420,17 @@ $ git push</pre>
   </div>
 </main>
 
-<!-- FOOTER -->
 <footer class="bg-dark text-white py-4" role="contentinfo">
   <div class="container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
       <span class="fw-semibold">
         <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
       </span>
-      <!-- FIX ACCESSIBILITY — contraste: text-white-50 → text-white-75 -->
       <span class="small text-white-75">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>
 
-<!--
-  FIX PERFORMANCE — Render-blocking JS (80ms):
-  Se agrega defer para que el script no bloquee el parser HTML.
-  El accordion y el navbar toggler funcionan igual con defer.
--->
 <script src="../assets/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

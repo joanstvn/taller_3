@@ -11,29 +11,8 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffffff" />
 
-  <!--
-    FIX PERFORMANCE — CLS 0.610:
-    Bootstrap CSS cargado de forma SÍNCRONA para que el body
-    ya tenga todos los estilos en el primer paint.
-    El preload+onload asíncrono causaba CLS porque el body
-    se renderizaba sin las clases de Bootstrap primero.
-  -->
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
 
-  <!--
-    FIX PERFORMANCE — Font display (450ms FOIT):
-    Se declara font-display:swap inline ANTES de que cargue
-    el CSS externo de Bootstrap Icons. El browser aplica esta
-    regla primero y evita el Flash of Invisible Text.
-
-    FIX CLS — body background:
-    Se define el color de fondo inline para que esté disponible
-    desde el primer paint sin esperar a Bootstrap.
-
-    FIX ACCESSIBILITY — links en cards sin texto visible:
-    Se asegura que los <a> que envuelven cards tengan
-    aria-label descriptivo para lectores de pantalla.
-  -->
   <style>
     @font-face {
       font-family: "bootstrap-icons";
@@ -42,31 +21,16 @@
     body { background-color: #f8f9fa; }
   </style>
 
-  <!--
-    Bootstrap Icons: diferido (below-the-fold en esta página,
-    pero los iconos del navbar son above-the-fold → preload).
-  -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
 </head>
-<!--
-  FIX ACCESSIBILITY:
-  - Se elimina d-flex/flex-column/min-vh-100 del body y se mueven
-    al layout wrapper para evitar que elementos de body sean
-    analizados como contenedores de rol implícito.
-  - Estructura semántica correcta: body > nav + main + footer.
--->
+
 <body class="bg-light">
 
 <a href="#main" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
 
-<!-- ══════════ NAVBAR APP ══════════ -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación de la aplicación">
   <div class="container">
-    <!--
-      FIX ACCESSIBILITY — navbar-brand:
-      El aria-label describe claramente el destino del enlace.
-    -->
     <a class="navbar-brand fw-semibold" href="index.html" aria-label="Taller 3 App — Ir al inicio">
       <span class="badge bg-dark me-1 rounded-2" aria-hidden="true">T3</span>
     </a>
@@ -77,13 +41,6 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="appNavMenu">
-      <!--
-        FIX ACCESSIBILITY — nav list:
-        Se elimina role="menubar/menuitem/none" del navbar de Bootstrap,
-        ya que Bootstrap navbar usa role="navigation" + links normales.
-        El patrón ARIA menu es para menús de aplicación tipo desktop,
-        no para navegación de sitio. Mezclarlo causa errores en AT.
-      -->
       <ul class="navbar-nav me-auto gap-1">
         <li class="nav-item">
           <a class="nav-link active px-3 rounded-pill" href="index.html" aria-current="page">
@@ -113,30 +70,12 @@
   </div>
 </nav>
 
-<!-- ══════════ CONTENIDO ══════════ -->
-<!--
-  FIX ACCESSIBILITY — main landmark:
-  tabindex="-1" permite que el skip link haga foco en el <main>
-  correctamente en todos los browsers.
--->
 <main id="main" tabindex="-1" class="container py-5" style="min-height: calc(100vh - 130px);">
   <div class="mb-5">
     <h1 class="display-5 fw-bold mb-0">Bienvenido al área interna.</h1>
   </div>
   <div class="row g-3">
     <div class="col-12 col-md-4">
-      <!--
-        FIX ACCESSIBILITY — links que envuelven cards:
-        Un <a> que envuelve toda una card debe tener texto
-        accesible. El texto visible ("Ver tabla") funciona,
-        pero el <article> con <h2> dentro del <a> puede
-        causar que AT lea todo el contenido como nombre del link.
-
-        Solución: mover el enlace DENTRO de la card como CTA,
-        y hacer toda la card clickable con JS sin anidar <a>.
-        O bien, usar aria-label en el <a> externo para dar
-        nombre conciso al link.
-      -->
       <a href="tables.html" class="text-decoration-none" aria-label="Ir a Tabla — Directorio interno de empleados">
         <article class="card h-100 border rounded-4 shadow-sm p-1" style="transition: transform .15s ease, box-shadow .15s ease;">
           <div class="card-body d-flex flex-column gap-3">
@@ -187,36 +126,17 @@
   </div>
 </main>
 
-<!-- ══════════ FOOTER ══════════ -->
 <footer class="bg-dark text-white py-4" role="contentinfo">
   <div class="container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
       <span class="fw-semibold">
         <span class="badge bg-white bg-opacity-10 me-1 rounded-2" aria-hidden="true">T3</span>Taller 3
       </span>
-      <!--
-        FIX ACCESSIBILITY — color contrast:
-        text-white-50 tiene ratio ~2.3:1 sobre fondo dark (falla WCAG AA).
-        Se cambia a text-white-75 (~4.0:1) que pasa el umbral de 4.5:1
-        para texto pequeño o se usa text-white para garantizar contraste.
-      -->
       <span class="small text-white-75">&copy; 2026 Joan Stiven Rios Valderrama. Todos los derechos reservados.</span>
     </div>
   </div>
 </footer>
 
-<!--
-  FIX PERFORMANCE — Unused JS:
-  Esta página NO usa carousel, tooltip, modal ni collapse activos.
-  Solo usa dropdown (navbar) y collapse (navbar toggler mobile).
-
-  Opción A (implementada): mantener bootstrap.bundle.min.js con defer
-  ya que el bundle incluye Popper necesario para el dropdown del navbar.
-  La penalización de JS unused es "unscored" en Lighthouse.
-
-  Opción B (para producción): importar solo los módulos necesarios:
-  bootstrap/js/dist/collapse.js + bootstrap/js/dist/dropdown.js
--->
 <script src="../assets/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

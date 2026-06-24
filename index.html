@@ -12,7 +12,6 @@
   <meta name="theme-color" content="#ffffff" />
   <link rel="canonical" href="https://taller3.com/" />
 
-  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://taller3.com/" />
   <meta property="og:title" content="Taller 3 — Agencia de Diseño & Desarrollo Web" />
@@ -20,52 +19,21 @@
   <meta property="og:image" content="./assets/img/chicago.jpg" />
   <meta property="og:locale" content="es_CO" />
 
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Taller 3 — Agencia de Diseño & Desarrollo Web" />
   <meta name="twitter:description" content="Diseño digital, desarrollo web y estrategia para empresas que quieren crecer." />
   <meta name="twitter:image" content="./assets/img/chicago.jpg" />
 
-  <!--
-    FIX 1 — LCP request discovery:
-    Se agrega fetchpriority="high" al preload de la imagen LCP (chicago.jpg)
-    para que el browser la descubra y priorice desde el HTML parser.
-  -->
   <link rel="preload" as="image" href="./assets/img/chicago.jpg" fetchpriority="high">
 
-  <!--
-    FIX 2 — Layout Shift (CLS) por carga de CSS:
-    Bootstrap se carga de forma síncrona en el <head> para que el body
-    ya tenga los estilos aplicados en el primer paint y no haya layout shift.
-    El preload + onload asíncrono causaba que el body se renderizara sin clases
-    de Bootstrap, produciendo el CLS de 1.000 en body.bg-light.
-  -->
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 
-  <!--
-    FIX 3 — Font display:
-    Bootstrap Icons se carga con font-display:swap a través de un <style>
-    inline que sobreescribe la regla @font-face antes de que cargue el CSS
-    externo. Esto evita el FOIT (Flash of Invisible Text) de 410ms.
-    También se difiere el CSS de iconos ya que son below-the-fold.
-  -->
   <style>
-    /*
-      Sobrescribe font-display para Bootstrap Icons ANTES de que cargue
-      el stylesheet externo. El browser aplica esta regla primero.
-    */
     @font-face {
       font-family: "bootstrap-icons";
       font-display: swap;
     }
 
-    /*
-      FIX 4 — Layout Shift (CLS):
-      Reservar espacio para el carousel (100vh) desde el inicio
-      evita que el body salte cuando Bootstrap aplica sus estilos.
-      Se define el bg-light en CSS crítico inline para que esté
-      disponible antes del primer paint.
-    */
     body { background-color: #f8f9fa; }
 
     /* Reservar altura del carousel para evitar reflow */
@@ -76,12 +44,6 @@
       background-color: #dee2e6;
     }
   </style>
-
-  <!--
-    FIX 3b — Bootstrap Icons diferido (below-the-fold):
-    Se usa media="print" + onload para cargarlo de forma no bloqueante.
-    Los iconos no son críticos para el LCP.
-  -->
   <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"></noscript>
 </head>
@@ -90,7 +52,6 @@
 <!-- Saltar al contenido principal -->
 <a href="#contenido-principal" class="visually-hidden-focusable" style="position:absolute;top:0;left:0;z-index:9999;padding:.5rem;background:#000;color:#fff;text-decoration:none;border-radius:0 0 4px 0;">Saltar al contenido principal</a>
 
-<!-- ══════════ NAVBAR ══════════ -->
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom sticky-top shadow-sm" role="navigation" aria-label="Navegación principal">
   <div class="container">
     <a class="navbar-brand fw-semibold" href="#inicio" aria-label="Taller 3 — Inicio">
@@ -129,10 +90,8 @@
   </div>
 </nav>
 
-<!-- ══════════ CONTENIDO PRINCIPAL ══════════ -->
 <main id="contenido-principal" tabindex="-1">
 
-  <!-- ══════════ SECCIÓN 1: CAROUSEL ══════════ -->
   <section id="inicio" class="vh-100" aria-label="Galería de imágenes destacadas">
     <div id="carouselTaller" class="carousel slide h-100" data-bs-ride="carousel">
       <div class="carousel-indicators">
@@ -142,13 +101,6 @@
       </div>
       <div class="carousel-inner h-100">
         <div class="carousel-item active h-100">
-          <!--
-            FIX 1b — LCP image:
-            - fetchpriority="high" para que el browser la priorice en la red
-            - decoding="sync" para que bloquee el render solo de esta imagen (LCP)
-            - NO loading="lazy" en la imagen LCP
-            - width/height explícitos para evitar layout shift
-          -->
           <img src="./assets/img/chicago.jpg"
                class="d-block w-100 h-100 object-fit-cover"
                alt="Vista panorámica de Chicago al anochecer, ciudad donde operamos proyectos internacionales"
@@ -180,7 +132,6 @@
     </div>
   </section>
 
-  <!-- ══════════ SECCIÓN 2: SERVICIOS ══════════ -->
   <section id="servicios" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="servicios-titulo">
     <div class="container py-5">
       <div class="row justify-content-between align-items-end mb-5">
@@ -260,7 +211,6 @@
     </div>
   </section>
 
-  <!-- ══════════ SECCIÓN 3: EQUIPO ══════════ -->
   <section id="equipo" class="bg-light d-flex align-items-center min-vh-100" aria-labelledby="equipo-titulo">
     <div class="container py-5">
       <div class="row justify-content-between align-items-end mb-5">
@@ -340,7 +290,6 @@
     </div>
   </section>
 
-  <!-- ══════════ SECCIÓN 4: PRECIOS ══════════ -->
   <section id="precios" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="precios-titulo">
     <div class="container py-5">
       <div class="text-center mb-5">
@@ -409,7 +358,6 @@
     </div>
   </section>
 
-  <!-- ══════════ SECCIÓN 5: FAQ ══════════ -->
   <section id="faq" class="bg-light d-flex align-items-center min-vh-100" aria-labelledby="faq-titulo">
     <div class="container py-5">
       <div class="row justify-content-center">
@@ -475,7 +423,6 @@
     </div>
   </section>
 
-  <!-- ══════════ SECCIÓN 6: CONTACTO ══════════ -->
   <section id="contacto" class="bg-white d-flex align-items-center min-vh-100" aria-labelledby="contacto-titulo">
     <div class="container py-5">
       <div class="row g-5 align-items-center">
@@ -539,7 +486,6 @@
 
 </main>
 
-<!-- ══════════ FOOTER ══════════ -->
 <footer class="bg-dark text-white py-4" role="contentinfo">
   <div class="container">
     <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
@@ -551,12 +497,6 @@
   </div>
 </footer>
 
-<!--
-  FIX 5 — Forced reflow & render-blocking JS:
-  Bootstrap JS se carga con defer para que no bloquee el parser
-  ni consulte offsetWidth antes de que el DOM esté listo.
-  defer garantiza que se ejecuta después del parsing completo.
--->
 <script src="assets/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
